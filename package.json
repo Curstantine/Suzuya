@@ -1,0 +1,28 @@
+{
+  "name": "suzuya",
+  "version": "0.0.1",
+  "description": "Typescript MangaDex client library.",
+  "main": "dist/index.js",
+  "scripts": {
+    "pretest": "tsc",
+    "test": "node dist/test/index.test.js"
+  },
+  "keywords": [],
+  "author": "Curstantine",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^16.11.4",
+    "@types/node-fetch": "^2.5.12",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-plugin": "^1.0.11",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.5",
+    "uuid4": "^2.0.2"
+  }
+}
