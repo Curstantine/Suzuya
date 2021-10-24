@@ -1,33 +1,12 @@
 import fetch from 'node-fetch';
 import Config from '../config';
 
-interface ServerResponse {
-  result: 'ok' | 'error';
-}
-
-interface ServerLoginResponse extends ServerResponse {
-  token?: {
-    session: string;
-    refresh: string;
-  };
-  errors?: {
-    id: string;
-    status: number;
-    title: string;
-    detail: string;
-  }[];
-}
-
-interface ServerCheckResponse extends ServerResponse {
-  result: 'ok';
-  isAuthenticated: boolean;
-  roles: string[];
-  permissions: string[];
-}
-
-interface ServerRefreshResponse extends ServerLoginResponse {
-  message?: string;
-}
+import { ServerResponse } from '../interfaces/common';
+import {
+  ServerLoginResponse,
+  ServerCheckResponse,
+  ServerRefreshResponse,
+} from '../interfaces/auth';
 
 export default class Auth {
   private config: Config;
