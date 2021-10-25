@@ -44,7 +44,7 @@ export default class Config {
   }
 
   public get AuthRes(): AuthCache {
-    if (!this.authcache) throw new Error("You need to authenticate first");
+    if (!this.authcache) throw new Error("You need to authenticate first.");
     return this.authcache;
   }
   public set AuthRes(authRes: AuthCache) {

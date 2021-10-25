@@ -10,7 +10,12 @@ import {
   MangaUpdateBody,
   ServerMangaVolumeResponse,
 } from "../interfaces/manga";
-import { ServerCollectionResponse, ServerEntityResponse, UUID } from "../interfaces/common";
+import {
+  ServerCollectionResponse,
+  ServerEntityResponse,
+  ServerResponse,
+  UUID,
+} from "../interfaces/common";
 
 export default class Manga {
   private auth: Auth;
@@ -50,11 +55,15 @@ export default class Manga {
 
   /**
    * Create a new Manga. \
+   * Requires Authorization. \
    * Docs: https://api.mangadex.org/docs.html#operation/post-manga
    */
   public async createManga(body: MangaCreateBody) {
     const response = await fetch(`${this.config.APIUrl}/manga`, {
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorizations: `Bearer ${this.config.AuthRes.session}`,
+      },
       method: "POST",
       body: JSON.stringify(body),
     });
@@ -99,19 +108,44 @@ export default class Manga {
   }
 
   /**
+   * Requires Authorization. \
    * Docs: https://api.mangadex.org/docs.html#operation/put-manga-id
    */
   public async updateManga(uuid: UUID, body: MangaUpdateBody) {
     if (!uuid4.valid(uuid)) throw new Error("Not a valid uuid");
 
     const response = await fetch(`${this.config.APIUrl}/manga/${uuid}`, {
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.config.AuthRes.session}`,
+      },
       method: "PUT",
       body: JSON.stringify(body),
     });
 
     if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerEntityResponse<"manga"> = await response.json();
+
+    return data;
+  }
+
+  /**
+   * Requires Authorization \
+   * Docs: https://api.mangadex.org/docs.html#operation/delete-manga-id
+   */
+  public async deleteManga(uuid: UUID) {
+    if (!uuid4.valid(uuid)) throw new Error("Not a valid uuid");
+
+    const response = await fetch(`${this.config.APIUrl}/manga/${uuid}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.config.AuthRes.session}`,
+      },
+      method: "DEL",
+    });
+
+    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: ServerResponse = await response.json();
 
     return data;
   }
