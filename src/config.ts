@@ -31,15 +31,13 @@ export default class Config {
   public get MDUrl(): string {
     return this.urls.MD_URL;
   }
-
-  public get APIUrl(): string {
-    return this.urls.MD_API_URL;
-  }
-
   public set MDUrl(url: string) {
     this.urls.MD_URL = url;
   }
 
+  public get APIUrl(): string {
+    return this.urls.MD_API_URL;
+  }
   public set APIUrl(url: string) {
     this.urls.MD_API_URL = url;
   }
@@ -48,7 +46,6 @@ export default class Config {
     if (!this.authres) throw new Error('You need to set AuthRes first');
     return this.authres;
   }
-
   public set AuthRes(authRes: AuthRes) {
     this.authres = authRes;
   }
