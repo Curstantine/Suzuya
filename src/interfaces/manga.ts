@@ -219,3 +219,9 @@ export interface ServerMangaVolumeResponse extends ServerResponse {
     };
   };
 }
+
+export interface ServerMangaStatuses extends ServerResponse {
+  statuses: {
+    [key: UUID]: MangaStatus;
+  };
+}

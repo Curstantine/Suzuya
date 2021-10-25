@@ -8,7 +8,9 @@ import {
   MangaCreateBody,
   MangaFeedParameters,
   MangaQueryParameters,
+  MangaStatus,
   MangaUpdateBody,
+  ServerMangaStatuses,
   ServerMangaVolumeResponse,
 } from "../interfaces/manga";
 import {
@@ -244,6 +246,26 @@ export default class Manga {
 
     if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerCollectionResponse<"tag"> = await response.json();
+
+    return data;
+  }
+
+  /**
+   * Requires Authentication
+   */
+  public async getAllReadingStatus(status: MangaStatus) {
+    const url = new URL(`${this.config.APIUrl}/manga/random`);
+    if (status) url.searchParams.set("status", status);
+
+    const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.config.AuthRes.session}`,
+      },
+    });
+
+    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: ServerMangaStatuses = await response.json();
 
     return data;
   }
