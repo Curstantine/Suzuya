@@ -11,5 +11,8 @@ const suzu = new Suzuya(config);
   //   console.log(res.relationships);
   // });
 
-  const response = await suzu.manga.deleteManga("f9c33607-9180-4ba6-b85c-e4b5faee7192");
+  const response = await suzu.manga.mangaFeed("f9c33607-9180-4ba6-b85c-e4b5faee7192", { limit: 2 });
+  response.data.forEach((chapter) => {
+    console.log(chapter);
+  });
 })();

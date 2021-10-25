@@ -136,6 +136,36 @@ export interface MangaQueryParameters {
   "includes[]"?: string[];
 }
 
+export interface MangaFeedParameters {
+  [key: string]: any;
+  /** Must be between 1-100; Default: 10 */
+  limit?: number;
+  /** Must be more than or equal to 0 */
+  offset?: number;
+  "translatedLanguage[]"?: LangCodes[];
+  "originalLanguage[]"?: LangCodes[];
+  "excludedOriginalLanguage[]"?: LangCodes[];
+
+  /** `0` or `1` to represent false and true */
+  includeFutureUpdates?: number;
+
+  /** Defaults to  ["safe","suggestive","erotica"] */
+  "contentRating[]"?: ContentRating[];
+
+  /** DateTime string with following format: YYYY-MM-DDTHH:MM:SS */
+  createdAtSince?: string;
+
+  /** DateTime string with following format: YYYY-MM-DDTHH:MM:SS */
+  updatedAtSince?: string;
+
+  // TODO: Handle this in the search, right now it fails.
+  order?: {
+    volume?: "asc" | "desc";
+    chapter?: "asc" | "desc";
+  };
+  "includes[]"?: string[];
+}
+
 export interface MangaCreateBody {
   title: LangCodeObject;
   altTitles?: LangCodeObject[];

@@ -1,3 +1,4 @@
+import { ServerChapterAttribute } from "./chapter";
 import { ServerMangaAttribute, ServerMangaTagAttributes } from "./manga";
 
 export type RelationShipTypes =
@@ -27,6 +28,7 @@ interface ServerEntityAttributes {
   [key: string]: any;
   manga: ServerMangaAttribute;
   tag: ServerMangaTagAttributes;
+  chapter: ServerChapterAttribute;
 }
 
 export interface ServerRelationships {

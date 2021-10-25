@@ -6,6 +6,7 @@ import Auth from "./auth";
 
 import {
   MangaCreateBody,
+  MangaFeedParameters,
   MangaQueryParameters,
   MangaUpdateBody,
   ServerMangaVolumeResponse,
@@ -39,8 +40,6 @@ export default class Manga {
         currentParam.forEach((paramElem) => {
           url.searchParams.append(key, paramElem);
         });
-      } else if (typeof currentParam === "object") {
-        url.searchParams.append(key, JSON.stringify(currentParam));
       } else {
         url.searchParams.append(key, currentParam);
       }
@@ -189,6 +188,30 @@ export default class Manga {
     if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerResponse = await response.json();
 
+    return data;
+  }
+
+  /**
+   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id-feed
+   */
+  public async mangaFeed(uuid: UUID, params: MangaFeedParameters) {
+    const url = new URL(`${this.config.APIUrl}/manga/${uuid}/feed`);
+    Object.keys(params).forEach((key) => {
+      const currentParam = params[key];
+
+      if (currentParam instanceof Array) {
+        currentParam.forEach((paramElem) => {
+          url.searchParams.append(key, paramElem);
+        });
+      } else {
+        url.searchParams.append(key, currentParam);
+      }
+    });
+
+    const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
+    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+
+    const data: ServerCollectionResponse<"chapter"> = await response.json();
     return data;
   }
 }
