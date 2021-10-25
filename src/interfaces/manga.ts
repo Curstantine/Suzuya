@@ -1,44 +1,23 @@
 import { ServerEntityResponse, UUID } from './common';
 import { LangCodeObject, LangCodes } from './locales';
 
-export enum MangaStatus {
-  'ongoing',
-  'completed',
-  'hiatus',
-  'cancelled',
-}
+export type MangaStatus = 'ongoing' | 'completed' | 'hiatus' | 'cancelled';
 
-export enum MangaReadingStatus {
-  'reading',
-  'on_hold',
-  'plan_to_read',
-  'dropped',
-  're_reading',
-  'completed',
-}
+export type MangaReadingStatus =
+  | 'reading'
+  | 'on_hold'
+  | 'plan_to_read'
+  | 'dropped'
+  | 're_reading'
+  | 'completed';
 
-export enum PublicationDemographic {
-  'shounen',
-  'shoujo',
-  'josei',
-  'seinen',
-}
+export type PublicationDemographic = 'shounen' | 'shoujo' | 'josei' | 'seinen';
 
-export enum ContentRating {
-  'safe',
-  'suggestive',
-  'erotica',
-  'pornographic',
-}
+export type ContentRating = 'safe' | 'suggestive' | 'erotica' | 'pornographic';
 
-export enum MangaState {
-  'draft',
-}
+export type MangaState = 'draft';
 
-export enum CustomListVisibility {
-  'public',
-  'private',
-}
+export type CustomListVisibility = 'public' | 'private';
 
 export interface MangaLinks {
   /** AniList */
@@ -67,23 +46,22 @@ export interface MangaLinks {
   engtl?: string;
 }
 
-export enum MagnaRelated {
-  'monochrome',
-  'main_story',
-  'adapted_from',
-  'based_on',
-  'prequel',
-  'side_story',
-  'doujinshi',
-  'same_franchise',
-  'shared_universe',
-  'sequel',
-  'spin_off',
-  'alternate_story',
-  'preserialization',
-  'colored',
-  'serialization',
-}
+export type MagnaRelated =
+  | 'monochrome'
+  | 'main_story'
+  | 'adapted_from'
+  | 'based_on'
+  | 'prequel'
+  | 'side_story'
+  | 'doujinshi'
+  | 'same_franchise'
+  | 'shared_universe'
+  | 'sequel'
+  | 'spin_off'
+  | 'alternate_story'
+  | 'preserialization'
+  | 'colored'
+  | 'serialization';
 
 export interface ServerMangaAttribute {
   title: LangCodeObject;
@@ -91,7 +69,7 @@ export interface ServerMangaAttribute {
   description: LangCodeObject;
   isLocked: true;
   links: MangaLinks;
-  originalLanguage: string;
+  originalLanguage: LangCodes;
   lastVolume: string;
   lastChapter: string;
   publicationDemographic: PublicationDemographic;
@@ -106,8 +84,8 @@ export interface ServerMangaAttribute {
 }
 
 export interface ServerMangaTagAttributes {
-  name: LangCodes;
-  description: LangCodes;
+  name: LangCodeObject;
+  description: LangCodeObject;
   group: string;
   version: number;
 }
@@ -145,6 +123,7 @@ export interface MangaQueryParameters {
   updatedAtSince?: string;
 
   /** Default: {"latestUploadedChapter":"desc"} */
+  // TODO: Handle this in the search, right now it fails.
   order?: {
     title?: 'asc' | 'desc';
     year?: 'asc' | 'desc';

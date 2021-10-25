@@ -5,6 +5,7 @@ import Config from '../config';
 import Auth from './auth';
 
 import { MangaQueryParameters } from '../interfaces/manga';
+import { ServerCollectionResponse, ServerEntityResponse } from '../interfaces/common';
 
 export default class Manga {
   private auth: Auth;
@@ -20,15 +21,38 @@ export default class Manga {
    * Docs: https://api.mangadex.org/docs.html#operation/get-search-manga
    */
   public async listManga(params: MangaQueryParameters) {
-    const url = new URL(this.config.APIUrl);
+    const url = new URL(`${this.config.APIUrl}/manga`);
     Object.keys(params).forEach((key) => {
-      url.searchParams.set(key, params[key]);
+      const currentParam = params[key];
+
+      if (currentParam instanceof Array) {
+        currentParam.forEach((paramElem) => {
+          url.searchParams.append(key, paramElem);
+        });
+      } else if (typeof currentParam === 'object') {
+        url.searchParams.append(key, JSON.stringify(currentParam));
+      } else {
+        url.searchParams.append(key, currentParam);
+      }
     });
-    
-    return url.toString();
+
+    const response = await fetch(url, { headers: { 'Content-Type': 'application/json' } });
+    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+
+    const data: ServerCollectionResponse<'manga'> = await response.json();
+    return data;
   }
 
   public async viewManga(uuid: string) {
     if (!uuid4.valid(uuid)) throw new Error('Not a valid uuid');
+
+    const response = await fetch(`${this.config.APIUrl}/manga/${uuid}`, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: ServerEntityResponse<'manga'> = await response.json();
+
+    return data;
   }
 }

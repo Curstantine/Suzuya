@@ -4,7 +4,8 @@
   "description": "Typescript MangaDex client library.",
   "main": "dist/index.js",
   "scripts": {
-    "prepare": "tsc && node dist/scripts/langCodes.js",
+    "prepare": "tsc && npm run prepare:dry",
+    "prepare:dry": "node dist/scripts/langCodes.js",
     "pretest": "tsc",
     "test": "node dist/test/index.test.js"
   },

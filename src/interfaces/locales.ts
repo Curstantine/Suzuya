@@ -371,371 +371,371 @@ export interface LangCodeObject {
 
 export enum LangCodes {
   /**Afar*/
-  aa,
+  'Afar' = 'aa',
   /**Abkhaz*/
-  ab,
+  'Abkhaz' = 'ab',
   /**Avestan*/
-  ae,
+  'Avestan' = 'ae',
   /**Afrikaans*/
-  af,
+  'Afrikaans' = 'af',
   /**Akan*/
-  ak,
+  'Akan' = 'ak',
   /**Amharic*/
-  am,
+  'Amharic' = 'am',
   /**Aragonese*/
-  an,
+  'Aragonese' = 'an',
   /**Arabic*/
-  ar,
+  'Arabic' = 'ar',
   /**Assamese*/
-  as,
+  'Assamese' = 'as',
   /**Avaric*/
-  av,
+  'Avaric' = 'av',
   /**Aymara*/
-  ay,
+  'Aymara' = 'ay',
   /**Azerbaijani*/
-  az,
+  'Azerbaijani' = 'az',
   /**Bashkir*/
-  ba,
+  'Bashkir' = 'ba',
   /**Belarusian*/
-  be,
+  'Belarusian' = 'be',
   /**Bulgarian*/
-  bg,
+  'Bulgarian' = 'bg',
   /**Bihari*/
-  bh,
+  'Bihari' = 'bh',
   /**Bislama*/
-  bi,
+  'Bislama' = 'bi',
   /**Bambara*/
-  bm,
+  'Bambara' = 'bm',
   /**Bengali*/
-  bn,
+  'Bengali' = 'bn',
   /**Tibetan*/
-  bo,
+  'Tibetan' = 'bo',
   /**Breton*/
-  br,
+  'Breton' = 'br',
   /**Bosnian*/
-  bs,
+  'Bosnian' = 'bs',
   /**Catalan*/
-  ca,
+  'Catalan' = 'ca',
   /**Chechen*/
-  ce,
+  'Chechen' = 'ce',
   /**Chamorro*/
-  ch,
+  'Chamorro' = 'ch',
   /**Corsican*/
-  co,
+  'Corsican' = 'co',
   /**Cree*/
-  cr,
+  'Cree' = 'cr',
   /**Czech*/
-  cs,
+  'Czech' = 'cs',
   /**Old Church Slavonic*/
-  cu,
+  'Old_Church_Slavonic' = 'cu',
   /**Chuvash*/
-  cv,
+  'Chuvash' = 'cv',
   /**Welsh*/
-  cy,
+  'Welsh' = 'cy',
   /**Danish*/
-  da,
+  'Danish' = 'da',
   /**German*/
-  de,
+  'German' = 'de',
   /**Divehi*/
-  dv,
+  'Divehi' = 'dv',
   /**Dzongkha*/
-  dz,
+  'Dzongkha' = 'dz',
   /**Ewe*/
-  ee,
+  'Ewe' = 'ee',
   /**Greek*/
-  el,
+  'Greek' = 'el',
   /**English*/
-  en,
+  'English' = 'en',
   /**Esperanto*/
-  eo,
+  'Esperanto' = 'eo',
   /**Spanish*/
-  es,
+  'Spanish' = 'es',
   /**Estonian*/
-  et,
+  'Estonian' = 'et',
   /**Basque*/
-  eu,
+  'Basque' = 'eu',
   /**Persian*/
-  fa,
+  'Persian' = 'fa',
   /**Fula*/
-  ff,
+  'Fula' = 'ff',
   /**Finnish*/
-  fi,
+  'Finnish' = 'fi',
   /**Fijian*/
-  fj,
+  'Fijian' = 'fj',
   /**Faroese*/
-  fo,
+  'Faroese' = 'fo',
   /**French*/
-  fr,
+  'French' = 'fr',
   /**Western Frisian*/
-  fy,
+  'Western_Frisian' = 'fy',
   /**Irish*/
-  ga,
+  'Irish' = 'ga',
   /**Scottish Gaelic*/
-  gd,
+  'Scottish_Gaelic' = 'gd',
   /**Galician*/
-  gl,
+  'Galician' = 'gl',
   /**Guaraní*/
-  gn,
+  'Guaraní' = 'gn',
   /**Gujarati*/
-  gu,
+  'Gujarati' = 'gu',
   /**Manx*/
-  gv,
+  'Manx' = 'gv',
   /**Hausa*/
-  ha,
+  'Hausa' = 'ha',
   /**Hebrew*/
-  he,
+  'Hebrew' = 'he',
   /**Hindi*/
-  hi,
+  'Hindi' = 'hi',
   /**Hiri Motu*/
-  ho,
+  'Hiri_Motu' = 'ho',
   /**Croatian*/
-  hr,
+  'Croatian' = 'hr',
   /**Haitian*/
-  ht,
+  'Haitian' = 'ht',
   /**Hungarian*/
-  hu,
+  'Hungarian' = 'hu',
   /**Armenian*/
-  hy,
+  'Armenian' = 'hy',
   /**Herero*/
-  hz,
+  'Herero' = 'hz',
   /**Interlingua*/
-  ia,
+  'Interlingua' = 'ia',
   /**Indonesian*/
-  id,
+  'Indonesian' = 'id',
   /**Interlingue*/
-  ie,
+  'Interlingue' = 'ie',
   /**Igbo*/
-  ig,
+  'Igbo' = 'ig',
   /**Nuosu*/
-  ii,
+  'Nuosu' = 'ii',
   /**Inupiaq*/
-  ik,
+  'Inupiaq' = 'ik',
   /**Ido*/
-  io,
+  'Ido' = 'io',
   /**Icelandic*/
-  is,
+  'Icelandic' = 'is',
   /**Italian*/
-  it,
+  'Italian' = 'it',
   /**Inuktitut*/
-  iu,
+  'Inuktitut' = 'iu',
   /**Japanese*/
-  ja,
+  'Japanese' = 'ja',
   /**Javanese*/
-  jv,
+  'Javanese' = 'jv',
   /**Georgian*/
-  ka,
+  'Georgian' = 'ka',
   /**Kongo*/
-  kg,
+  'Kongo' = 'kg',
   /**Kikuyu*/
-  ki,
+  'Kikuyu' = 'ki',
   /**Kwanyama*/
-  kj,
+  'Kwanyama' = 'kj',
   /**Kazakh*/
-  kk,
+  'Kazakh' = 'kk',
   /**Kalaallisut*/
-  kl,
+  'Kalaallisut' = 'kl',
   /**Khmer*/
-  km,
+  'Khmer' = 'km',
   /**Kannada*/
-  kn,
+  'Kannada' = 'kn',
   /**Korean*/
-  ko,
+  'Korean' = 'ko',
   /**Kanuri*/
-  kr,
+  'Kanuri' = 'kr',
   /**Kashmiri*/
-  ks,
+  'Kashmiri' = 'ks',
   /**Kurdish*/
-  ku,
+  'Kurdish' = 'ku',
   /**Komi*/
-  kv,
+  'Komi' = 'kv',
   /**Cornish*/
-  kw,
+  'Cornish' = 'kw',
   /**Kyrgyz*/
-  ky,
+  'Kyrgyz' = 'ky',
   /**Latin*/
-  la,
+  'Latin' = 'la',
   /**Luxembourgish*/
-  lb,
+  'Luxembourgish' = 'lb',
   /**Ganda*/
-  lg,
+  'Ganda' = 'lg',
   /**Limburgish*/
-  li,
+  'Limburgish' = 'li',
   /**Lingala*/
-  ln,
+  'Lingala' = 'ln',
   /**Lao*/
-  lo,
+  'Lao' = 'lo',
   /**Lithuanian*/
-  lt,
+  'Lithuanian' = 'lt',
   /**Luba-Katanga*/
-  lu,
+  'Luba-Katanga' = 'lu',
   /**Latvian*/
-  lv,
+  'Latvian' = 'lv',
   /**Malagasy*/
-  mg,
+  'Malagasy' = 'mg',
   /**Marshallese*/
-  mh,
+  'Marshallese' = 'mh',
   /**Māori*/
-  mi,
+  'Māori' = 'mi',
   /**Macedonian*/
-  mk,
+  'Macedonian' = 'mk',
   /**Malayalam*/
-  ml,
+  'Malayalam' = 'ml',
   /**Mongolian*/
-  mn,
+  'Mongolian' = 'mn',
   /**Marathi*/
-  mr,
+  'Marathi' = 'mr',
   /**Malay*/
-  ms,
+  'Malay' = 'ms',
   /**Maltese*/
-  mt,
+  'Maltese' = 'mt',
   /**Burmese*/
-  my,
+  'Burmese' = 'my',
   /**Nauru*/
-  na,
+  'Nauru' = 'na',
   /**Norwegian Bokmål*/
-  nb,
+  'Norwegian_Bokmål' = 'nb',
   /**Northern Ndebele*/
-  nd,
+  'Northern_Ndebele' = 'nd',
   /**Nepali*/
-  ne,
+  'Nepali' = 'ne',
   /**Ndonga*/
-  ng,
+  'Ndonga' = 'ng',
   /**Dutch*/
-  nl,
+  'Dutch' = 'nl',
   /**Norwegian Nynorsk*/
-  nn,
+  'Norwegian_Nynorsk' = 'nn',
   /**Norwegian*/
-  no,
+  'Norwegian' = 'no',
   /**Southern Ndebele*/
-  nr,
+  'Southern_Ndebele' = 'nr',
   /**Navajo*/
-  nv,
+  'Navajo' = 'nv',
   /**Chichewa*/
-  ny,
+  'Chichewa' = 'ny',
   /**Occitan*/
-  oc,
+  'Occitan' = 'oc',
   /**Ojibwe*/
-  oj,
+  'Ojibwe' = 'oj',
   /**Oromo*/
-  om,
+  'Oromo' = 'om',
   /**Oriya*/
-  or,
+  'Oriya' = 'or',
   /**Ossetian*/
-  os,
+  'Ossetian' = 'os',
   /**Panjabi*/
-  pa,
+  'Panjabi' = 'pa',
   /**Pāli*/
-  pi,
+  'Pāli' = 'pi',
   /**Polish*/
-  pl,
+  'Polish' = 'pl',
   /**Pashto*/
-  ps,
+  'Pashto' = 'ps',
   /**Portuguese*/
-  pt,
+  'Portuguese' = 'pt',
   /**Quechua*/
-  qu,
+  'Quechua' = 'qu',
   /**Romansh*/
-  rm,
+  'Romansh' = 'rm',
   /**Kirundi*/
-  rn,
+  'Kirundi' = 'rn',
   /**Romanian*/
-  ro,
+  'Romanian' = 'ro',
   /**Russian*/
-  ru,
+  'Russian' = 'ru',
   /**Kinyarwanda*/
-  rw,
+  'Kinyarwanda' = 'rw',
   /**Sanskrit*/
-  sa,
+  'Sanskrit' = 'sa',
   /**Sardinian*/
-  sc,
+  'Sardinian' = 'sc',
   /**Sindhi*/
-  sd,
+  'Sindhi' = 'sd',
   /**Northern Sami*/
-  se,
+  'Northern_Sami' = 'se',
   /**Sango*/
-  sg,
+  'Sango' = 'sg',
   /**Sinhala*/
-  si,
+  'Sinhala' = 'si',
   /**Slovak*/
-  sk,
+  'Slovak' = 'sk',
   /**Slovenian*/
-  sl,
+  'Slovenian' = 'sl',
   /**Samoan*/
-  sm,
+  'Samoan' = 'sm',
   /**Shona*/
-  sn,
+  'Shona' = 'sn',
   /**Somali*/
-  so,
+  'Somali' = 'so',
   /**Albanian*/
-  sq,
+  'Albanian' = 'sq',
   /**Serbian*/
-  sr,
+  'Serbian' = 'sr',
   /**Swati*/
-  ss,
+  'Swati' = 'ss',
   /**Southern Sotho*/
-  st,
+  'Southern_Sotho' = 'st',
   /**Sundanese*/
-  su,
+  'Sundanese' = 'su',
   /**Swedish*/
-  sv,
+  'Swedish' = 'sv',
   /**Swahili*/
-  sw,
+  'Swahili' = 'sw',
   /**Tamil*/
-  ta,
+  'Tamil' = 'ta',
   /**Telugu*/
-  te,
+  'Telugu' = 'te',
   /**Tajik*/
-  tg,
+  'Tajik' = 'tg',
   /**Thai*/
-  th,
+  'Thai' = 'th',
   /**Tigrinya*/
-  ti,
+  'Tigrinya' = 'ti',
   /**Turkmen*/
-  tk,
+  'Turkmen' = 'tk',
   /**Tagalog*/
-  tl,
+  'Tagalog' = 'tl',
   /**Tswana*/
-  tn,
+  'Tswana' = 'tn',
   /**Tonga*/
-  to,
+  'Tonga' = 'to',
   /**Turkish*/
-  tr,
+  'Turkish' = 'tr',
   /**Tsonga*/
-  ts,
+  'Tsonga' = 'ts',
   /**Tatar*/
-  tt,
+  'Tatar' = 'tt',
   /**Twi*/
-  tw,
+  'Twi' = 'tw',
   /**Tahitian*/
-  ty,
+  'Tahitian' = 'ty',
   /**Uyghur*/
-  ug,
+  'Uyghur' = 'ug',
   /**Ukrainian*/
-  uk,
+  'Ukrainian' = 'uk',
   /**Urdu*/
-  ur,
+  'Urdu' = 'ur',
   /**Uzbek*/
-  uz,
+  'Uzbek' = 'uz',
   /**Venda*/
-  ve,
+  'Venda' = 've',
   /**Vietnamese*/
-  vi,
+  'Vietnamese' = 'vi',
   /**Volapük*/
-  vo,
+  'Volapük' = 'vo',
   /**Walloon*/
-  wa,
+  'Walloon' = 'wa',
   /**Wolof*/
-  wo,
+  'Wolof' = 'wo',
   /**Xhosa*/
-  xh,
+  'Xhosa' = 'xh',
   /**Yiddish*/
-  yi,
+  'Yiddish' = 'yi',
   /**Yoruba*/
-  yo,
+  'Yoruba' = 'yo',
   /**Zhuang*/
-  za,
+  'Zhuang' = 'za',
   /**Chinese*/
-  zh,
+  'Chinese' = 'zh',
   /**Zulu*/
-  zu,
+  'Zulu' = 'zu',
 }

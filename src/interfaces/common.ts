@@ -1,35 +1,35 @@
 import { ServerMangaAttribute, ServerMangaTagAttributes } from './manga';
 
-export enum RelationShipTypes {
-  'manga',
-  'chapter',
-  'cover_art',
-  'author',
-  'artist',
-  'scanlation_group',
-  'tag',
-  'user',
-  'custom_list',
-}
+export type RelationShipTypes =
+  | 'manga'
+  | 'chapter'
+  | 'cover_art'
+  | 'author'
+  | 'artist'
+  | 'scanlation_group'
+  | 'tag'
+  | 'user'
+  | 'custom_list';
 
 export interface ServerResponse {
   result: 'ok' | 'error';
 }
 
 export interface ServerError {
-  id: string;
+  id: UUID;
   status: number;
   title: string;
   detail: string;
 }
 
 interface ServerEntityAttributes {
+  [key: string]: any;
   manga: ServerMangaAttribute;
   tag: ServerMangaTagAttributes;
 }
 
 export interface ServerRelationships<T extends RelationShipTypes> {
-  id: string;
+  id: UUID;
   type: T;
   related: string;
   attributes: ServerEntityAttributes[T];
@@ -38,11 +38,19 @@ export interface ServerRelationships<T extends RelationShipTypes> {
 export interface ServerEntityResponse<T extends RelationShipTypes> extends ServerResponse {
   response: 'entity';
   data: {
-    id: string;
+    id: UUID;
     type: T;
     attributes: ServerEntityAttributes[T];
-    relationships: ServerRelationships;
+    relationships: ServerRelationships<T>;
   };
+}
+
+export interface ServerCollectionResponse<T extends RelationShipTypes> extends ServerResponse {
+  response: 'collection';
+  data: ServerEntityResponse<T>['data'][];
+  limit: number;
+  offset: number;
+  total: number;
 }
 
 /** UUID */
