@@ -78,7 +78,7 @@ export default class Manga {
    * Docs: https://api.mangadex.org/docs.html#tag/Manga/paths/~1manga~1{id}~1aggregate/get
    */
   public async getMangaVolumes(uuid: UUID) {
-    if (!uuid4.valid(uuid)) throw new Error("Not a valid uuid");
+    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
 
     const response = await fetch(`${this.config.APIUrl}/manga/${uuid}/aggregate`, {
       headers: { "Content-Type": "application/json" },
@@ -95,7 +95,7 @@ export default class Manga {
    * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id
    */
   public async viewManga(uuid: UUID) {
-    if (!uuid4.valid(uuid)) throw new Error("Not a valid uuid");
+    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
 
     const response = await fetch(`${this.config.APIUrl}/manga/${uuid}`, {
       headers: { "Content-Type": "application/json" },
@@ -112,7 +112,7 @@ export default class Manga {
    * Docs: https://api.mangadex.org/docs.html#operation/put-manga-id
    */
   public async updateManga(uuid: UUID, body: MangaUpdateBody) {
-    if (!uuid4.valid(uuid)) throw new Error("Not a valid uuid");
+    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
 
     const response = await fetch(`${this.config.APIUrl}/manga/${uuid}`, {
       headers: {
@@ -134,9 +134,30 @@ export default class Manga {
    * Docs: https://api.mangadex.org/docs.html#operation/delete-manga-id
    */
   public async deleteManga(uuid: UUID) {
-    if (!uuid4.valid(uuid)) throw new Error("Not a valid uuid");
+    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
 
     const response = await fetch(`${this.config.APIUrl}/manga/${uuid}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.config.AuthRes.session}`,
+      },
+      method: "DEL",
+    });
+
+    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: ServerResponse = await response.json();
+
+    return data;
+  }
+
+  /**
+   * Requires Authorization \
+   * Docs: https://api.mangadex.org/docs.html#operation/delete-manga-id-follow
+   */
+  public async unfollowManga(uuid: UUID) {
+    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
+
+    const response = await fetch(`${this.config.APIUrl}/manga/${uuid}/follow`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${this.config.AuthRes.session}`,
