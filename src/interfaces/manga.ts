@@ -155,6 +155,25 @@ export interface MangaCreateBody {
   version?: number;
 }
 
+export interface MangaUpdateBody {
+  title?: LangCodeObject;
+  altTitles?: LangCodeObject[];
+  description?: LangCodeObject;
+  authors?: UUID[];
+  artists?: UUID[];
+  links?: MangaLinks;
+  originalLanguage?: string;
+  lastVolume?: string;
+  lastChapter?: string;
+  publicationDemographic?: PublicationDemographic;
+  status: MangaStatus;
+  year?: number;
+  contentRating?: ContentRating;
+  tags?: UUID[];
+  modNotes?: string;
+  version: number;
+}
+
 export interface ServerMangaVolumeResponse extends ServerResponse {
   volumes: {
     [key: string | "none"]: {

@@ -7,6 +7,7 @@ import Auth from "./auth";
 import {
   MangaCreateBody,
   MangaQueryParameters,
+  MangaUpdateBody,
   ServerMangaVolumeResponse,
 } from "../interfaces/manga";
 import { ServerCollectionResponse, ServerEntityResponse, UUID } from "../interfaces/common";
@@ -47,6 +48,10 @@ export default class Manga {
     return data;
   }
 
+  /**
+   * Create a new Manga. \
+   * Docs: https://api.mangadex.org/docs.html#operation/post-manga
+   */
   public async createManga(body: MangaCreateBody) {
     const response = await fetch(`${this.config.APIUrl}/manga`, {
       headers: { "Content-Type": "application/json" },
@@ -60,6 +65,9 @@ export default class Manga {
     return data;
   }
 
+  /**
+   * Docs: https://api.mangadex.org/docs.html#tag/Manga/paths/~1manga~1{id}~1aggregate/get
+   */
   public async getMangaVolumes(uuid: UUID) {
     if (!uuid4.valid(uuid)) throw new Error("Not a valid uuid");
 
@@ -73,11 +81,33 @@ export default class Manga {
     return data;
   }
 
+  /**
+   * View Manga. \
+   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id
+   */
   public async viewManga(uuid: UUID) {
     if (!uuid4.valid(uuid)) throw new Error("Not a valid uuid");
 
     const response = await fetch(`${this.config.APIUrl}/manga/${uuid}`, {
       headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: ServerEntityResponse<"manga"> = await response.json();
+
+    return data;
+  }
+
+  /**
+   * Docs: https://api.mangadex.org/docs.html#operation/put-manga-id
+   */
+  public async updateManga(uuid: UUID, body: MangaUpdateBody) {
+    if (!uuid4.valid(uuid)) throw new Error("Not a valid uuid");
+
+    const response = await fetch(`${this.config.APIUrl}/manga/${uuid}`, {
+      headers: { "Content-Type": "application/json" },
+      method: "PUT",
+      body: JSON.stringify(body),
     });
 
     if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
