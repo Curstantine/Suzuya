@@ -4,8 +4,12 @@ import uuid4 from "uuid4";
 import Config from "../config";
 import Auth from "./auth";
 
-import { MangaCreateBody, MangaQueryParameters } from "../interfaces/manga";
-import { ServerCollectionResponse, ServerEntityResponse } from "../interfaces/common";
+import {
+  MangaCreateBody,
+  MangaQueryParameters,
+  ServerMangaVolumeResponse,
+} from "../interfaces/manga";
+import { ServerCollectionResponse, ServerEntityResponse, UUID } from "../interfaces/common";
 
 export default class Manga {
   private auth: Auth;
@@ -56,7 +60,20 @@ export default class Manga {
     return data;
   }
 
-  public async viewManga(uuid: string) {
+  public async getMangaVolumes(uuid: UUID) {
+    if (!uuid4.valid(uuid)) throw new Error("Not a valid uuid");
+
+    const response = await fetch(`${this.config.APIUrl}/manga/${uuid}/aggregate`, {
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: ServerMangaVolumeResponse = await response.json();
+
+    return data;
+  }
+
+  public async viewManga(uuid: UUID) {
     if (!uuid4.valid(uuid)) throw new Error("Not a valid uuid");
 
     const response = await fetch(`${this.config.APIUrl}/manga/${uuid}`, {

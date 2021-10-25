@@ -1,4 +1,4 @@
-import { ServerEntityResponse, UUID } from "./common";
+import { ServerResponse, ServerEntityResponse, UUID } from "./common";
 import { LangCodeObject, LangCodes } from "./locales";
 
 export type MangaStatus = "ongoing" | "completed" | "hiatus" | "cancelled";
@@ -153,4 +153,20 @@ export interface MangaCreateBody {
   tags?: UUID[];
   modNotes?: string;
   version?: number;
+}
+
+export interface ServerMangaVolumeResponse extends ServerResponse {
+  volumes: {
+    [key: string | "none"]: {
+      volume: string;
+      count: number;
+      chapters: {
+        [key: string | "none"]: {
+          chapter: string;
+          id: UUID;
+          count: number;
+        };
+      };
+    };
+  };
 }
