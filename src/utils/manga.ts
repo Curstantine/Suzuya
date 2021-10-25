@@ -216,7 +216,7 @@ export default class Manga {
   }
 
   /**
-   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id-feed
+   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-random
    */
   public async getRandomManga(includes?: string[]) {
     const url = new URL(`${this.config.APIUrl}/manga/random`);
@@ -231,6 +231,20 @@ export default class Manga {
     if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
 
     const data: ServerEntityResponse<"manga"> = await response.json();
+    return data;
+  }
+
+  /**
+   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-tag
+   */
+  public async tagList() {
+    const response = await fetch(`${this.config.APIUrl}/manga/tag`, {
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: ServerCollectionResponse<"tag"> = await response.json();
+
     return data;
   }
 }
