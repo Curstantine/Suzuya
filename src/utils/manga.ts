@@ -301,4 +301,25 @@ export default class Manga {
 
     return data;
   }
+
+  /**
+   * Requires Authentication \
+   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id-status
+   */
+  public async updateMangaReadingStatus(uuid: UUID, status: MangaStatus) {
+    const url = new URL(`${this.config.APIUrl}/manga/${uuid}/status`);
+    const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.config.AuthRes.session}`,
+      },
+      method: "POST",
+      body: JSON.stringify({ status: status }),
+    });
+
+    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: ServerResponse = await response.json();
+
+    return data;
+  }
 }
