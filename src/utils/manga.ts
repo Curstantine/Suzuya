@@ -214,4 +214,23 @@ export default class Manga {
     const data: ServerCollectionResponse<"chapter"> = await response.json();
     return data;
   }
+
+  /**
+   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id-feed
+   */
+  public async getRandomManga(includes?: string[]) {
+    const url = new URL(`${this.config.APIUrl}/manga/random`);
+
+    if (includes) {
+      includes.forEach((paramElem) => {
+        url.searchParams.append("includes[]", paramElem);
+      });
+    }
+
+    const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
+    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+
+    const data: ServerEntityResponse<"manga"> = await response.json();
+    return data;
+  }
 }
