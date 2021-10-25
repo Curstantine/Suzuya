@@ -10,6 +10,7 @@ import {
   MangaQueryParameters,
   MangaStatus,
   MangaUpdateBody,
+  ServerMangaDraftParameters,
   ServerMangaDraftSubmitBody,
   ServerMangaStatus,
   ServerMangaStatuses,
@@ -269,7 +270,7 @@ export default class Manga {
    */
   public async getAllReadingStatus(status: MangaStatus) {
     const url = new URL(`${this.config.APIUrl}/manga/status`);
-    if (status) url.searchParams.set("status", status);
+    if (status) url.searchParams.append("status", status);
 
     const response = await fetch(url, {
       headers: {
@@ -366,6 +367,34 @@ export default class Manga {
       },
       method: "POST",
       body: JSON.stringify(body),
+    });
+
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: ServerEntityResponse<"manga"> = await response.json();
+
+    return data;
+  }
+
+  public async listMangaDrafts(params: ServerMangaDraftParameters) {
+    const url = new URL(`${this.config.APIUrl}/manga/draft`);
+
+    Object.keys(params).forEach((key) => {
+      const currentParam = params[key];
+
+      if (currentParam instanceof Array) {
+        currentParam.forEach((paramElem) => {
+          url.searchParams.append(key, paramElem);
+        });
+      } else {
+        url.searchParams.append(key, currentParam);
+      }
+    });
+
+    const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.config.AuthRes.session}`,
+      },
     });
 
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);

@@ -15,7 +15,7 @@ export type PublicationDemographic = "shounen" | "shoujo" | "josei" | "seinen";
 
 export type ContentRating = "safe" | "suggestive" | "erotica" | "pornographic";
 
-export type MangaState = "draft";
+export type MangaState = "draft" | "submitted" | "rejected";
 
 export type CustomListVisibility = "public" | "private";
 
@@ -232,4 +232,19 @@ export interface ServerMangaStatus extends ServerResponse {
 
 export interface ServerMangaDraftSubmitBody {
   version: number;
+}
+
+export interface ServerMangaDraftParameters {
+  [key: string]: any;
+  limit?: number;
+  offset?: number;
+  user?: UUID;
+  state?: MangaState;
+  order?: {
+    title?: "asc" | "desc";
+    year?: "asc" | "desc";
+    createdAt?: "asc" | "desc";
+    updatedAt?: "asc" | "desc";
+  };
+  "includes[]"?: string[];
 }
