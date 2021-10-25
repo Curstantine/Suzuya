@@ -10,7 +10,8 @@ export type RelationShipTypes =
   | "scanlation_group"
   | "tag"
   | "user"
-  | "custom_list";
+  | "custom_list"
+  | "manga_relation";
 
 export interface ServerResponse {
   result: "ok" | "error";
@@ -23,17 +24,23 @@ export interface ServerError {
   detail: string;
 }
 
+export interface ServerRelationships {
+  id: UUID;
+  type: RelationShipTypes;
+}
+
+export interface ServerRelationAttribute {
+  relation: string;
+  version: number;
+}
+
 interface ServerEntityAttributes {
   // TODO: Remove this
   [key: string]: any;
   manga: ServerMangaAttribute;
   tag: ServerMangaTagAttributes;
   chapter: ServerChapterAttribute;
-}
-
-export interface ServerRelationships {
-  id: UUID;
-  type: RelationShipTypes;
+  manga_relation: ServerRelationAttribute;
 }
 
 export interface ServerEntityResponse<T extends RelationShipTypes> extends ServerResponse {

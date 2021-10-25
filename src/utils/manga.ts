@@ -83,10 +83,10 @@ export default class Manga {
   /**
    * Docs: https://api.mangadex.org/docs.html#tag/Manga/paths/~1manga~1{id}~1aggregate/get
    */
-  public async getMangaVolumes(uuid: UUID) {
-    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
+  public async getMangaVolumes(mangaId: UUID) {
+    if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
 
-    const url = new URL(`${this.config.APIUrl}/manga/${uuid}/aggregate`);
+    const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/aggregate`);
     const response = await fetch(url, {
       headers: { "Content-Type": "application/json" },
     });
@@ -101,10 +101,10 @@ export default class Manga {
    * View Manga. \
    * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id
    */
-  public async viewManga(uuid: UUID) {
-    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
+  public async viewManga(mangaId: UUID) {
+    if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
 
-    const url = new URL(`${this.config.APIUrl}/manga/${uuid}`);
+    const url = new URL(`${this.config.APIUrl}/manga/${mangaId}`);
     const response = await fetch(url, {
       headers: { "Content-Type": "application/json" },
     });
@@ -119,10 +119,10 @@ export default class Manga {
    * Requires Authentication. \
    * Docs: https://api.mangadex.org/docs.html#operation/put-manga-id
    */
-  public async updateManga(uuid: UUID, body: MangaUpdateBody) {
-    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
+  public async updateManga(mangaId: UUID, body: MangaUpdateBody) {
+    if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
 
-    const url = new URL(`${this.config.APIUrl}/manga/${uuid}`);
+    const url = new URL(`${this.config.APIUrl}/manga/${mangaId}`);
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -142,10 +142,10 @@ export default class Manga {
    * Requires Authentication \
    * Docs: https://api.mangadex.org/docs.html#operation/delete-manga-id
    */
-  public async deleteManga(uuid: UUID) {
-    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
+  public async deleteManga(mangaId: UUID) {
+    if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
 
-    const url = new URL(`${this.config.APIUrl}/manga/${uuid}`);
+    const url = new URL(`${this.config.APIUrl}/manga/${mangaId}`);
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -164,10 +164,10 @@ export default class Manga {
    * Requires Authentication \
    * Docs: https://api.mangadex.org/docs.html#operation/delete-manga-id-follow
    */
-  public async unfollowManga(uuid: UUID) {
-    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
+  public async unfollowManga(mangaId: UUID) {
+    if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
 
-    const url = new URL(`${this.config.APIUrl}/manga/${uuid}/follow`);
+    const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/follow`);
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -186,10 +186,10 @@ export default class Manga {
    * Requires Authentication \
    * Docs: https://api.mangadex.org/docs.html#operation/post-manga-id-follow
    */
-  public async followManga(uuid: UUID) {
-    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
+  public async followManga(mangaId: UUID) {
+    if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
 
-    const url = new URL(`${this.config.APIUrl}/manga/${uuid}/follow`);
+    const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/follow`);
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -207,10 +207,10 @@ export default class Manga {
   /**
    * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id-feed
    */
-  public async mangaFeed(uuid: UUID, params: MangaFeedParameters) {
-    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
+  public async mangaFeed(mangaId: UUID, params: MangaFeedParameters) {
+    if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
 
-    const url = new URL(`${this.config.APIUrl}/manga/${uuid}/feed`);
+    const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/feed`);
     Object.keys(params).forEach((key) => {
       const currentParam = params[key];
 
@@ -289,10 +289,10 @@ export default class Manga {
    * Requires Authentication \
    * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id-status
    */
-  public async getReadingStatus(uuid: UUID) {
-    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
+  public async getReadingStatus(mangaId: UUID) {
+    if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
 
-    const url = new URL(`${this.config.APIUrl}/manga/${uuid}/status`);
+    const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/status`);
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -310,10 +310,10 @@ export default class Manga {
    * Requires Authentication \
    * Docs: https://api.mangadex.org/docs.html#operation/post-manga-id-status
    */
-  public async updateMangaReadingStatus(uuid: UUID, status: MangaStatus) {
-    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
+  public async updateMangaReadingStatus(mangaId: UUID, status: MangaStatus) {
+    if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
 
-    const url = new URL(`${this.config.APIUrl}/manga/${uuid}/status`);
+    const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/status`);
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -375,6 +375,10 @@ export default class Manga {
     return data;
   }
 
+  /**
+   * Requires Authentication \
+   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-drafts
+   */
   public async listMangaDrafts(params: ServerMangaDraftParameters) {
     const url = new URL(`${this.config.APIUrl}/manga/draft`);
 
@@ -399,6 +403,21 @@ export default class Manga {
 
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerEntityResponse<"manga"> = await response.json();
+
+    return data;
+  }
+
+  /**
+   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-relation
+   */
+  public async mangaRelationList(mangaId: UUID) {
+    const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/relation`);
+    const response = await fetch(url, {
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: ServerCollectionResponse<"manga_relation"> = await response.json();
 
     return data;
   }
