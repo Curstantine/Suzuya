@@ -225,3 +225,7 @@ export interface ServerMangaStatuses extends ServerResponse {
     [key: UUID]: MangaStatus;
   };
 }
+
+export interface ServerMangaStatus extends ServerResponse {
+  status: MangaStatus;
+}
