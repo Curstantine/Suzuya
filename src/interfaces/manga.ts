@@ -229,3 +229,7 @@ export interface ServerMangaStatuses extends ServerResponse {
 export interface ServerMangaStatus extends ServerResponse {
   status: MangaStatus;
 }
+
+export interface ServerMangaDraftSubmitBody {
+  version: number;
+}

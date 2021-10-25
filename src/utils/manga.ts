@@ -10,6 +10,7 @@ import {
   MangaQueryParameters,
   MangaStatus,
   MangaUpdateBody,
+  ServerMangaDraftSubmitBody,
   ServerMangaStatus,
   ServerMangaStatuses,
   ServerMangaVolumeResponse,
@@ -354,7 +355,7 @@ export default class Manga {
    *
    * Docs: https://api.mangadex.org/docs.html#operation/commit-manga-draft
    */
-  public async submitMangaDraft(uuid: UUID) {
+  public async submitMangaDraft(uuid: UUID, body: ServerMangaDraftSubmitBody) {
     if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
 
     const url = new URL(`${this.config.APIUrl}/manga/draft/${uuid}/commit`);
@@ -363,6 +364,8 @@ export default class Manga {
         "Content-Type": "application/json",
         Authorization: `Bearer ${this.config.AuthRes.session}`,
       },
+      method: "POST",
+      body: JSON.stringify(body),
     });
 
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
