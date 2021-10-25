@@ -49,7 +49,7 @@ export default class Manga {
     });
 
     const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
 
     const data: ServerCollectionResponse<"manga"> = await response.json();
     return data;
@@ -72,7 +72,7 @@ export default class Manga {
       body: JSON.stringify(body),
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerEntityResponse<"manga"> = await response.json();
 
     return data;
@@ -89,7 +89,7 @@ export default class Manga {
       headers: { "Content-Type": "application/json" },
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerMangaVolumeResponse = await response.json();
 
     return data;
@@ -107,7 +107,7 @@ export default class Manga {
       headers: { "Content-Type": "application/json" },
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerEntityResponse<"manga"> = await response.json();
 
     return data;
@@ -130,7 +130,7 @@ export default class Manga {
       body: JSON.stringify(body),
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerEntityResponse<"manga"> = await response.json();
 
     return data;
@@ -152,7 +152,7 @@ export default class Manga {
       method: "DEL",
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerResponse = await response.json();
 
     return data;
@@ -174,7 +174,7 @@ export default class Manga {
       method: "DEL",
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerResponse = await response.json();
 
     return data;
@@ -196,7 +196,7 @@ export default class Manga {
       method: "POST",
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerResponse = await response.json();
 
     return data;
@@ -222,7 +222,7 @@ export default class Manga {
     });
 
     const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
 
     const data: ServerCollectionResponse<"chapter"> = await response.json();
     return data;
@@ -241,7 +241,7 @@ export default class Manga {
     }
 
     const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
 
     const data: ServerEntityResponse<"manga"> = await response.json();
     return data;
@@ -256,7 +256,7 @@ export default class Manga {
       headers: { "Content-Type": "application/json" },
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerCollectionResponse<"tag"> = await response.json();
 
     return data;
@@ -277,7 +277,7 @@ export default class Manga {
       },
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerMangaStatuses = await response.json();
 
     return data;
@@ -298,7 +298,7 @@ export default class Manga {
       },
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerMangaStatus = await response.json();
 
     return data;
@@ -321,7 +321,7 @@ export default class Manga {
       body: JSON.stringify({ status: status }),
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerResponse = await response.json();
 
     return data;
@@ -342,7 +342,7 @@ export default class Manga {
       },
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerEntityResponse<"manga"> = await response.json();
 
     return data;
@@ -350,9 +350,24 @@ export default class Manga {
 
   /**
    * Requires Authentication \
+   * **A Manga Draft that is to be submitted must have at least one cover, must be in the "draft" state and must be passed the correct version in the request body.**
+   *
    * Docs: https://api.mangadex.org/docs.html#operation/commit-manga-draft
    */
   public async submitMangaDraft(uuid: UUID) {
     if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
+
+    const url = new URL(`${this.config.APIUrl}/manga/draft/${uuid}/commit`);
+    const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.config.AuthRes.session}`,
+      },
+    });
+
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: ServerEntityResponse<"manga"> = await response.json();
+
+    return data;
   }
 }

@@ -22,7 +22,7 @@ export default class Auth {
       body: JSON.stringify(this.config.credentials),
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerLoginResponse = await response.json();
 
     if (!data.errors && data.result === "ok") {
@@ -42,7 +42,7 @@ export default class Auth {
       headers: { Authorization: `Bearer ${this.config.AuthRes.session}` },
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${status}]`);
     const data: ServerCheckResponse = await response.json();
 
     if (data.result === "ok") {
@@ -57,7 +57,7 @@ export default class Auth {
       headers: { Authorization: `Bearer ${this.config.AuthRes.session}` },
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerResponse = await response.json();
 
     if (data.result !== "ok") {
@@ -72,7 +72,7 @@ export default class Auth {
       body: JSON.stringify({ token: this.config.AuthRes.refresh }),
     });
 
-    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: ServerRefreshResponse = await response.json();
 
     if (!data.errors && data.result === "ok") {
