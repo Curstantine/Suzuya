@@ -23,16 +23,16 @@ export interface ServerError {
   detail: string;
 }
 
-export interface ServerRelationsships {
-  id: string;
-  type: string;
-  related: string;
-  attributes: {};
-}
-
 interface ServerEntityAttributes {
   manga: ServerMangaAttribute;
   tag: ServerMangaTagAttributes;
+}
+
+export interface ServerRelationships<T extends RelationShipTypes> {
+  id: string;
+  type: T;
+  related: string;
+  attributes: ServerEntityAttributes[T];
 }
 
 export interface ServerEntityResponse<T extends RelationShipTypes> extends ServerResponse {
@@ -41,6 +41,9 @@ export interface ServerEntityResponse<T extends RelationShipTypes> extends Serve
     id: string;
     type: T;
     attributes: ServerEntityAttributes[T];
-    relationships: ServerRelationsships;
+    relationships: ServerRelationships;
   };
 }
+
+/** UUID */
+export type UUID = string;

@@ -1,5 +1,5 @@
-import { ServerEntityResponse } from './common';
-import { LangCodes } from './languageCodes';
+import { ServerEntityResponse, UUID } from './common';
+import { LangCodeObject, LangCodes } from './locales';
 
 export enum MangaStatus {
   'ongoing',
@@ -42,29 +42,29 @@ export enum CustomListVisibility {
 
 export interface MangaLinks {
   /** AniList */
-  al: string;
+  al?: string;
   /** AnimePlanet */
-  ap: string;
+  ap?: string;
   /* BookWalker */
-  bw: string;
+  bw?: string;
   /** MangaUpdates */
-  mu: string;
+  mu?: string;
   /** NovelUpdate */
-  nu: string;
+  nu?: string;
   /** Kitsu */
-  kt: string;
+  kt?: string;
   /** Amazon */
-  amz: string;
+  amz?: string;
   /** EbookJapan */
-  ebj: string;
+  ebj?: string;
   /** MyAnimeList */
-  mal: string;
+  mal?: string;
   /** CD Japan */
-  cdj: string;
+  cdj?: string;
   /** Raw */
-  raw: string;
+  raw?: string;
   /** English Tl */
-  engtl: string;
+  engtl?: string;
 }
 
 export enum MagnaRelated {
@@ -86,9 +86,9 @@ export enum MagnaRelated {
 }
 
 export interface ServerMangaAttribute {
-  title: LangCodes;
-  altTitles: LangCodes[];
-  description: LangCodes;
+  title: LangCodeObject;
+  altTitles: LangCodeObject[];
+  description: LangCodeObject;
   isLocked: true;
   links: MangaLinks;
   originalLanguage: string;
@@ -106,12 +106,53 @@ export interface ServerMangaAttribute {
 }
 
 export interface ServerMangaTagAttributes {
-  name: {
-    [key: string]: string;
-  };
-  description: {
-    [key: string]: string;
-  };
+  name: LangCodes;
+  description: LangCodes;
   group: string;
   version: number;
+}
+
+export interface MangaQueryParameters {
+  [key: string]: any;
+  /** Must be between 1-100; Default: 10 */
+  limit?: number;
+  /** Must be more than or equal to 0 */
+  offset?: number;
+  title?: string;
+  'authors[]'?: UUID[];
+  'artists[]'?: UUID[];
+  year?: number;
+  'includedTags[]'?: UUID[];
+  includedTagsMode?: 'AND' | 'OR';
+  'excludedTags[]'?: UUID[];
+  excludedTagsMode?: 'AND' | 'OR';
+  'status[]'?: ['ongoing' | 'completed' | 'hiatus' | 'cancelled'];
+  'originalLanguage[]'?: LangCodes[];
+  'excludedOriginalLanguage[]'?: LangCodes[];
+  'availableTranslatedLanguage[]'?: LangCodes[];
+  'publicationDemographic[]'?: PublicationDemographic[];
+
+  /** Array of UUIDs as strings; Max: 100 */
+  'ids[]'?: UUID[];
+
+  /** Defaults to  ["safe","suggestive","erotica"] */
+  'contentRating[]'?: ContentRating[];
+
+  /** DateTime string with following format: YYYY-MM-DDTHH:MM:SS */
+  createdAtSince?: string;
+
+  /** DateTime string with following format: YYYY-MM-DDTHH:MM:SS */
+  updatedAtSince?: string;
+
+  /** Default: {"latestUploadedChapter":"desc"} */
+  order?: {
+    title?: 'asc' | 'desc';
+    year?: 'asc' | 'desc';
+    createdAt?: 'asc' | 'desc';
+    updatedAt?: 'asc' | 'desc';
+    latestUploadedChapter?: 'asc' | 'desc';
+    followedCount?: 'asc' | 'desc';
+    relevance?: 'asc' | 'desc';
+  };
+  'includes[]'?: string[];
 }

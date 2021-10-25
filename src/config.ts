@@ -17,6 +17,7 @@ interface AuthRes {
 
 export default class Config {
   credentials: Credentials;
+
   private urls: MDURLS;
   private authres?: AuthRes;
 
