@@ -1,6 +1,6 @@
 interface MDURLS {
-  MD_URL: string;
-  MD_API_URL: string;
+  md_url: string;
+  md_api: string;
 }
 
 interface Credentials {
@@ -9,7 +9,7 @@ interface Credentials {
   username: string;
 }
 
-interface AuthRes {
+interface AuthCache {
   session: string;
   refresh: string;
   date: number;
@@ -19,37 +19,35 @@ export default class Config {
   credentials: Credentials;
 
   private urls: MDURLS;
-  private authres?: AuthRes;
+  private authcache?: AuthCache;
 
   constructor(credentials: Credentials) {
     this.credentials = credentials;
     this.urls = {
-      MD_URL: 'https://mangadex.org',
-      MD_API_URL: 'https://api.mangadex.org',
+      md_url: "https://mangadex.org",
+      md_api: "https://api.mangadex.org",
     };
   }
 
   public get MDUrl(): string {
-    return this.urls.MD_URL;
+    return this.urls.md_url;
   }
   public set MDUrl(url: string) {
-    this.urls.MD_URL = url;
+    this.urls.md_url = url;
   }
 
   public get APIUrl(): string {
-    return this.urls.MD_API_URL;
+    return this.urls.md_api;
   }
   public set APIUrl(url: string) {
-    this.urls.MD_API_URL = url;
+    this.urls.md_api = url;
   }
 
-  public get AuthRes(): AuthRes {
-    if (!this.authres) throw new Error('You need to set AuthRes first');
-    return this.authres;
+  public get AuthRes(): AuthCache {
+    if (!this.authcache) throw new Error("You need to authenticate first");
+    return this.authcache;
   }
-  public set AuthRes(authRes: AuthRes) {
-    this.authres = authRes;
+  public set AuthRes(authRes: AuthCache) {
+    this.authcache = authRes;
   }
 }
-
-//  MD_URL: 'https://mangadex.org', MD_API_URL: 'https://api.mangadex.org'

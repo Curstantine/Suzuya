@@ -371,371 +371,371 @@ export interface LangCodeObject {
 
 export enum LangCodes {
   /**Afar*/
-  'Afar' = 'aa',
+  "Afar" = "aa",
   /**Abkhaz*/
-  'Abkhaz' = 'ab',
+  "Abkhaz" = "ab",
   /**Avestan*/
-  'Avestan' = 'ae',
+  "Avestan" = "ae",
   /**Afrikaans*/
-  'Afrikaans' = 'af',
+  "Afrikaans" = "af",
   /**Akan*/
-  'Akan' = 'ak',
+  "Akan" = "ak",
   /**Amharic*/
-  'Amharic' = 'am',
+  "Amharic" = "am",
   /**Aragonese*/
-  'Aragonese' = 'an',
+  "Aragonese" = "an",
   /**Arabic*/
-  'Arabic' = 'ar',
+  "Arabic" = "ar",
   /**Assamese*/
-  'Assamese' = 'as',
+  "Assamese" = "as",
   /**Avaric*/
-  'Avaric' = 'av',
+  "Avaric" = "av",
   /**Aymara*/
-  'Aymara' = 'ay',
+  "Aymara" = "ay",
   /**Azerbaijani*/
-  'Azerbaijani' = 'az',
+  "Azerbaijani" = "az",
   /**Bashkir*/
-  'Bashkir' = 'ba',
+  "Bashkir" = "ba",
   /**Belarusian*/
-  'Belarusian' = 'be',
+  "Belarusian" = "be",
   /**Bulgarian*/
-  'Bulgarian' = 'bg',
+  "Bulgarian" = "bg",
   /**Bihari*/
-  'Bihari' = 'bh',
+  "Bihari" = "bh",
   /**Bislama*/
-  'Bislama' = 'bi',
+  "Bislama" = "bi",
   /**Bambara*/
-  'Bambara' = 'bm',
+  "Bambara" = "bm",
   /**Bengali*/
-  'Bengali' = 'bn',
+  "Bengali" = "bn",
   /**Tibetan*/
-  'Tibetan' = 'bo',
+  "Tibetan" = "bo",
   /**Breton*/
-  'Breton' = 'br',
+  "Breton" = "br",
   /**Bosnian*/
-  'Bosnian' = 'bs',
+  "Bosnian" = "bs",
   /**Catalan*/
-  'Catalan' = 'ca',
+  "Catalan" = "ca",
   /**Chechen*/
-  'Chechen' = 'ce',
+  "Chechen" = "ce",
   /**Chamorro*/
-  'Chamorro' = 'ch',
+  "Chamorro" = "ch",
   /**Corsican*/
-  'Corsican' = 'co',
+  "Corsican" = "co",
   /**Cree*/
-  'Cree' = 'cr',
+  "Cree" = "cr",
   /**Czech*/
-  'Czech' = 'cs',
+  "Czech" = "cs",
   /**Old Church Slavonic*/
-  'Old_Church_Slavonic' = 'cu',
+  "Old_Church_Slavonic" = "cu",
   /**Chuvash*/
-  'Chuvash' = 'cv',
+  "Chuvash" = "cv",
   /**Welsh*/
-  'Welsh' = 'cy',
+  "Welsh" = "cy",
   /**Danish*/
-  'Danish' = 'da',
+  "Danish" = "da",
   /**German*/
-  'German' = 'de',
+  "German" = "de",
   /**Divehi*/
-  'Divehi' = 'dv',
+  "Divehi" = "dv",
   /**Dzongkha*/
-  'Dzongkha' = 'dz',
+  "Dzongkha" = "dz",
   /**Ewe*/
-  'Ewe' = 'ee',
+  "Ewe" = "ee",
   /**Greek*/
-  'Greek' = 'el',
+  "Greek" = "el",
   /**English*/
-  'English' = 'en',
+  "English" = "en",
   /**Esperanto*/
-  'Esperanto' = 'eo',
+  "Esperanto" = "eo",
   /**Spanish*/
-  'Spanish' = 'es',
+  "Spanish" = "es",
   /**Estonian*/
-  'Estonian' = 'et',
+  "Estonian" = "et",
   /**Basque*/
-  'Basque' = 'eu',
+  "Basque" = "eu",
   /**Persian*/
-  'Persian' = 'fa',
+  "Persian" = "fa",
   /**Fula*/
-  'Fula' = 'ff',
+  "Fula" = "ff",
   /**Finnish*/
-  'Finnish' = 'fi',
+  "Finnish" = "fi",
   /**Fijian*/
-  'Fijian' = 'fj',
+  "Fijian" = "fj",
   /**Faroese*/
-  'Faroese' = 'fo',
+  "Faroese" = "fo",
   /**French*/
-  'French' = 'fr',
+  "French" = "fr",
   /**Western Frisian*/
-  'Western_Frisian' = 'fy',
+  "Western_Frisian" = "fy",
   /**Irish*/
-  'Irish' = 'ga',
+  "Irish" = "ga",
   /**Scottish Gaelic*/
-  'Scottish_Gaelic' = 'gd',
+  "Scottish_Gaelic" = "gd",
   /**Galician*/
-  'Galician' = 'gl',
+  "Galician" = "gl",
   /**Guaraní*/
-  'Guaraní' = 'gn',
+  "Guaraní" = "gn",
   /**Gujarati*/
-  'Gujarati' = 'gu',
+  "Gujarati" = "gu",
   /**Manx*/
-  'Manx' = 'gv',
+  "Manx" = "gv",
   /**Hausa*/
-  'Hausa' = 'ha',
+  "Hausa" = "ha",
   /**Hebrew*/
-  'Hebrew' = 'he',
+  "Hebrew" = "he",
   /**Hindi*/
-  'Hindi' = 'hi',
+  "Hindi" = "hi",
   /**Hiri Motu*/
-  'Hiri_Motu' = 'ho',
+  "Hiri_Motu" = "ho",
   /**Croatian*/
-  'Croatian' = 'hr',
+  "Croatian" = "hr",
   /**Haitian*/
-  'Haitian' = 'ht',
+  "Haitian" = "ht",
   /**Hungarian*/
-  'Hungarian' = 'hu',
+  "Hungarian" = "hu",
   /**Armenian*/
-  'Armenian' = 'hy',
+  "Armenian" = "hy",
   /**Herero*/
-  'Herero' = 'hz',
+  "Herero" = "hz",
   /**Interlingua*/
-  'Interlingua' = 'ia',
+  "Interlingua" = "ia",
   /**Indonesian*/
-  'Indonesian' = 'id',
+  "Indonesian" = "id",
   /**Interlingue*/
-  'Interlingue' = 'ie',
+  "Interlingue" = "ie",
   /**Igbo*/
-  'Igbo' = 'ig',
+  "Igbo" = "ig",
   /**Nuosu*/
-  'Nuosu' = 'ii',
+  "Nuosu" = "ii",
   /**Inupiaq*/
-  'Inupiaq' = 'ik',
+  "Inupiaq" = "ik",
   /**Ido*/
-  'Ido' = 'io',
+  "Ido" = "io",
   /**Icelandic*/
-  'Icelandic' = 'is',
+  "Icelandic" = "is",
   /**Italian*/
-  'Italian' = 'it',
+  "Italian" = "it",
   /**Inuktitut*/
-  'Inuktitut' = 'iu',
+  "Inuktitut" = "iu",
   /**Japanese*/
-  'Japanese' = 'ja',
+  "Japanese" = "ja",
   /**Javanese*/
-  'Javanese' = 'jv',
+  "Javanese" = "jv",
   /**Georgian*/
-  'Georgian' = 'ka',
+  "Georgian" = "ka",
   /**Kongo*/
-  'Kongo' = 'kg',
+  "Kongo" = "kg",
   /**Kikuyu*/
-  'Kikuyu' = 'ki',
+  "Kikuyu" = "ki",
   /**Kwanyama*/
-  'Kwanyama' = 'kj',
+  "Kwanyama" = "kj",
   /**Kazakh*/
-  'Kazakh' = 'kk',
+  "Kazakh" = "kk",
   /**Kalaallisut*/
-  'Kalaallisut' = 'kl',
+  "Kalaallisut" = "kl",
   /**Khmer*/
-  'Khmer' = 'km',
+  "Khmer" = "km",
   /**Kannada*/
-  'Kannada' = 'kn',
+  "Kannada" = "kn",
   /**Korean*/
-  'Korean' = 'ko',
+  "Korean" = "ko",
   /**Kanuri*/
-  'Kanuri' = 'kr',
+  "Kanuri" = "kr",
   /**Kashmiri*/
-  'Kashmiri' = 'ks',
+  "Kashmiri" = "ks",
   /**Kurdish*/
-  'Kurdish' = 'ku',
+  "Kurdish" = "ku",
   /**Komi*/
-  'Komi' = 'kv',
+  "Komi" = "kv",
   /**Cornish*/
-  'Cornish' = 'kw',
+  "Cornish" = "kw",
   /**Kyrgyz*/
-  'Kyrgyz' = 'ky',
+  "Kyrgyz" = "ky",
   /**Latin*/
-  'Latin' = 'la',
+  "Latin" = "la",
   /**Luxembourgish*/
-  'Luxembourgish' = 'lb',
+  "Luxembourgish" = "lb",
   /**Ganda*/
-  'Ganda' = 'lg',
+  "Ganda" = "lg",
   /**Limburgish*/
-  'Limburgish' = 'li',
+  "Limburgish" = "li",
   /**Lingala*/
-  'Lingala' = 'ln',
+  "Lingala" = "ln",
   /**Lao*/
-  'Lao' = 'lo',
+  "Lao" = "lo",
   /**Lithuanian*/
-  'Lithuanian' = 'lt',
+  "Lithuanian" = "lt",
   /**Luba-Katanga*/
-  'Luba-Katanga' = 'lu',
+  "Luba-Katanga" = "lu",
   /**Latvian*/
-  'Latvian' = 'lv',
+  "Latvian" = "lv",
   /**Malagasy*/
-  'Malagasy' = 'mg',
+  "Malagasy" = "mg",
   /**Marshallese*/
-  'Marshallese' = 'mh',
+  "Marshallese" = "mh",
   /**Māori*/
-  'Māori' = 'mi',
+  "Māori" = "mi",
   /**Macedonian*/
-  'Macedonian' = 'mk',
+  "Macedonian" = "mk",
   /**Malayalam*/
-  'Malayalam' = 'ml',
+  "Malayalam" = "ml",
   /**Mongolian*/
-  'Mongolian' = 'mn',
+  "Mongolian" = "mn",
   /**Marathi*/
-  'Marathi' = 'mr',
+  "Marathi" = "mr",
   /**Malay*/
-  'Malay' = 'ms',
+  "Malay" = "ms",
   /**Maltese*/
-  'Maltese' = 'mt',
+  "Maltese" = "mt",
   /**Burmese*/
-  'Burmese' = 'my',
+  "Burmese" = "my",
   /**Nauru*/
-  'Nauru' = 'na',
+  "Nauru" = "na",
   /**Norwegian Bokmål*/
-  'Norwegian_Bokmål' = 'nb',
+  "Norwegian_Bokmål" = "nb",
   /**Northern Ndebele*/
-  'Northern_Ndebele' = 'nd',
+  "Northern_Ndebele" = "nd",
   /**Nepali*/
-  'Nepali' = 'ne',
+  "Nepali" = "ne",
   /**Ndonga*/
-  'Ndonga' = 'ng',
+  "Ndonga" = "ng",
   /**Dutch*/
-  'Dutch' = 'nl',
+  "Dutch" = "nl",
   /**Norwegian Nynorsk*/
-  'Norwegian_Nynorsk' = 'nn',
+  "Norwegian_Nynorsk" = "nn",
   /**Norwegian*/
-  'Norwegian' = 'no',
+  "Norwegian" = "no",
   /**Southern Ndebele*/
-  'Southern_Ndebele' = 'nr',
+  "Southern_Ndebele" = "nr",
   /**Navajo*/
-  'Navajo' = 'nv',
+  "Navajo" = "nv",
   /**Chichewa*/
-  'Chichewa' = 'ny',
+  "Chichewa" = "ny",
   /**Occitan*/
-  'Occitan' = 'oc',
+  "Occitan" = "oc",
   /**Ojibwe*/
-  'Ojibwe' = 'oj',
+  "Ojibwe" = "oj",
   /**Oromo*/
-  'Oromo' = 'om',
+  "Oromo" = "om",
   /**Oriya*/
-  'Oriya' = 'or',
+  "Oriya" = "or",
   /**Ossetian*/
-  'Ossetian' = 'os',
+  "Ossetian" = "os",
   /**Panjabi*/
-  'Panjabi' = 'pa',
+  "Panjabi" = "pa",
   /**Pāli*/
-  'Pāli' = 'pi',
+  "Pāli" = "pi",
   /**Polish*/
-  'Polish' = 'pl',
+  "Polish" = "pl",
   /**Pashto*/
-  'Pashto' = 'ps',
+  "Pashto" = "ps",
   /**Portuguese*/
-  'Portuguese' = 'pt',
+  "Portuguese" = "pt",
   /**Quechua*/
-  'Quechua' = 'qu',
+  "Quechua" = "qu",
   /**Romansh*/
-  'Romansh' = 'rm',
+  "Romansh" = "rm",
   /**Kirundi*/
-  'Kirundi' = 'rn',
+  "Kirundi" = "rn",
   /**Romanian*/
-  'Romanian' = 'ro',
+  "Romanian" = "ro",
   /**Russian*/
-  'Russian' = 'ru',
+  "Russian" = "ru",
   /**Kinyarwanda*/
-  'Kinyarwanda' = 'rw',
+  "Kinyarwanda" = "rw",
   /**Sanskrit*/
-  'Sanskrit' = 'sa',
+  "Sanskrit" = "sa",
   /**Sardinian*/
-  'Sardinian' = 'sc',
+  "Sardinian" = "sc",
   /**Sindhi*/
-  'Sindhi' = 'sd',
+  "Sindhi" = "sd",
   /**Northern Sami*/
-  'Northern_Sami' = 'se',
+  "Northern_Sami" = "se",
   /**Sango*/
-  'Sango' = 'sg',
+  "Sango" = "sg",
   /**Sinhala*/
-  'Sinhala' = 'si',
+  "Sinhala" = "si",
   /**Slovak*/
-  'Slovak' = 'sk',
+  "Slovak" = "sk",
   /**Slovenian*/
-  'Slovenian' = 'sl',
+  "Slovenian" = "sl",
   /**Samoan*/
-  'Samoan' = 'sm',
+  "Samoan" = "sm",
   /**Shona*/
-  'Shona' = 'sn',
+  "Shona" = "sn",
   /**Somali*/
-  'Somali' = 'so',
+  "Somali" = "so",
   /**Albanian*/
-  'Albanian' = 'sq',
+  "Albanian" = "sq",
   /**Serbian*/
-  'Serbian' = 'sr',
+  "Serbian" = "sr",
   /**Swati*/
-  'Swati' = 'ss',
+  "Swati" = "ss",
   /**Southern Sotho*/
-  'Southern_Sotho' = 'st',
+  "Southern_Sotho" = "st",
   /**Sundanese*/
-  'Sundanese' = 'su',
+  "Sundanese" = "su",
   /**Swedish*/
-  'Swedish' = 'sv',
+  "Swedish" = "sv",
   /**Swahili*/
-  'Swahili' = 'sw',
+  "Swahili" = "sw",
   /**Tamil*/
-  'Tamil' = 'ta',
+  "Tamil" = "ta",
   /**Telugu*/
-  'Telugu' = 'te',
+  "Telugu" = "te",
   /**Tajik*/
-  'Tajik' = 'tg',
+  "Tajik" = "tg",
   /**Thai*/
-  'Thai' = 'th',
+  "Thai" = "th",
   /**Tigrinya*/
-  'Tigrinya' = 'ti',
+  "Tigrinya" = "ti",
   /**Turkmen*/
-  'Turkmen' = 'tk',
+  "Turkmen" = "tk",
   /**Tagalog*/
-  'Tagalog' = 'tl',
+  "Tagalog" = "tl",
   /**Tswana*/
-  'Tswana' = 'tn',
+  "Tswana" = "tn",
   /**Tonga*/
-  'Tonga' = 'to',
+  "Tonga" = "to",
   /**Turkish*/
-  'Turkish' = 'tr',
+  "Turkish" = "tr",
   /**Tsonga*/
-  'Tsonga' = 'ts',
+  "Tsonga" = "ts",
   /**Tatar*/
-  'Tatar' = 'tt',
+  "Tatar" = "tt",
   /**Twi*/
-  'Twi' = 'tw',
+  "Twi" = "tw",
   /**Tahitian*/
-  'Tahitian' = 'ty',
+  "Tahitian" = "ty",
   /**Uyghur*/
-  'Uyghur' = 'ug',
+  "Uyghur" = "ug",
   /**Ukrainian*/
-  'Ukrainian' = 'uk',
+  "Ukrainian" = "uk",
   /**Urdu*/
-  'Urdu' = 'ur',
+  "Urdu" = "ur",
   /**Uzbek*/
-  'Uzbek' = 'uz',
+  "Uzbek" = "uz",
   /**Venda*/
-  'Venda' = 've',
+  "Venda" = "ve",
   /**Vietnamese*/
-  'Vietnamese' = 'vi',
+  "Vietnamese" = "vi",
   /**Volapük*/
-  'Volapük' = 'vo',
+  "Volapük" = "vo",
   /**Walloon*/
-  'Walloon' = 'wa',
+  "Walloon" = "wa",
   /**Wolof*/
-  'Wolof' = 'wo',
+  "Wolof" = "wo",
   /**Xhosa*/
-  'Xhosa' = 'xh',
+  "Xhosa" = "xh",
   /**Yiddish*/
-  'Yiddish' = 'yi',
+  "Yiddish" = "yi",
   /**Yoruba*/
-  'Yoruba' = 'yo',
+  "Yoruba" = "yo",
   /**Zhuang*/
-  'Zhuang' = 'za',
+  "Zhuang" = "za",
   /**Chinese*/
-  'Chinese' = 'zh',
+  "Chinese" = "zh",
   /**Zulu*/
-  'Zulu' = 'zu',
+  "Zulu" = "zu",
 }

@@ -1,11 +1,11 @@
-import { URL, URLSearchParams } from 'url';
-import fetch from 'node-fetch';
-import uuid4 from 'uuid4';
-import Config from '../config';
-import Auth from './auth';
+import { URL, URLSearchParams } from "url";
+import fetch from "node-fetch";
+import uuid4 from "uuid4";
+import Config from "../config";
+import Auth from "./auth";
 
-import { MangaQueryParameters } from '../interfaces/manga';
-import { ServerCollectionResponse, ServerEntityResponse } from '../interfaces/common';
+import { MangaQueryParameters } from "../interfaces/manga";
+import { ServerCollectionResponse, ServerEntityResponse } from "../interfaces/common";
 
 export default class Manga {
   private auth: Auth;
@@ -29,29 +29,29 @@ export default class Manga {
         currentParam.forEach((paramElem) => {
           url.searchParams.append(key, paramElem);
         });
-      } else if (typeof currentParam === 'object') {
+      } else if (typeof currentParam === "object") {
         url.searchParams.append(key, JSON.stringify(currentParam));
       } else {
         url.searchParams.append(key, currentParam);
       }
     });
 
-    const response = await fetch(url, { headers: { 'Content-Type': 'application/json' } });
+    const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
     if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
 
-    const data: ServerCollectionResponse<'manga'> = await response.json();
+    const data: ServerCollectionResponse<"manga"> = await response.json();
     return data;
   }
 
   public async viewManga(uuid: string) {
-    if (!uuid4.valid(uuid)) throw new Error('Not a valid uuid');
+    if (!uuid4.valid(uuid)) throw new Error("Not a valid uuid");
 
     const response = await fetch(`${this.config.APIUrl}/manga/${uuid}`, {
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
 
     if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
-    const data: ServerEntityResponse<'manga'> = await response.json();
+    const data: ServerEntityResponse<"manga"> = await response.json();
 
     return data;
   }

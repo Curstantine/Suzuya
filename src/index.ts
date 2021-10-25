@@ -1,6 +1,6 @@
-import Config from './config';
-import Auth from './utils/auth';
-import Manga from './utils/manga';
+import Config from "./config";
+import Auth from "./utils/auth";
+import Manga from "./utils/manga";
 
 class Suzuya {
   private config: Config;

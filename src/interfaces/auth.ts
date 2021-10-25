@@ -1,4 +1,4 @@
-import { ServerResponse, ServerError } from './common';
+import { ServerResponse, ServerError } from "./common";
 
 export interface ServerLoginResponse extends ServerResponse {
   token?: {
@@ -9,7 +9,7 @@ export interface ServerLoginResponse extends ServerResponse {
 }
 
 export interface ServerCheckResponse extends ServerResponse {
-  result: 'ok';
+  result: "ok";
   isAuthenticated: boolean;
   roles: string[];
   permissions: string[];

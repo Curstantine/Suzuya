@@ -1,18 +1,18 @@
-import { ServerMangaAttribute, ServerMangaTagAttributes } from './manga';
+import { ServerMangaAttribute, ServerMangaTagAttributes } from "./manga";
 
 export type RelationShipTypes =
-  | 'manga'
-  | 'chapter'
-  | 'cover_art'
-  | 'author'
-  | 'artist'
-  | 'scanlation_group'
-  | 'tag'
-  | 'user'
-  | 'custom_list';
+  | "manga"
+  | "chapter"
+  | "cover_art"
+  | "author"
+  | "artist"
+  | "scanlation_group"
+  | "tag"
+  | "user"
+  | "custom_list";
 
 export interface ServerResponse {
-  result: 'ok' | 'error';
+  result: "ok" | "error";
 }
 
 export interface ServerError {
@@ -23,31 +23,30 @@ export interface ServerError {
 }
 
 interface ServerEntityAttributes {
+  // TODO: Remove this
   [key: string]: any;
   manga: ServerMangaAttribute;
   tag: ServerMangaTagAttributes;
 }
 
-export interface ServerRelationships<T extends RelationShipTypes> {
+export interface ServerRelationships {
   id: UUID;
-  type: T;
-  related: string;
-  attributes: ServerEntityAttributes[T];
+  type: RelationShipTypes;
 }
 
 export interface ServerEntityResponse<T extends RelationShipTypes> extends ServerResponse {
-  response: 'entity';
+  response: "entity";
   data: {
     id: UUID;
     type: T;
     attributes: ServerEntityAttributes[T];
-    relationships: ServerRelationships<T>;
+    relationships: ServerRelationships[];
   };
 }
 
 export interface ServerCollectionResponse<T extends RelationShipTypes> extends ServerResponse {
-  response: 'collection';
-  data: ServerEntityResponse<T>['data'][];
+  response: "collection";
+  data: ServerEntityResponse<T>["data"][];
   limit: number;
   offset: number;
   total: number;
