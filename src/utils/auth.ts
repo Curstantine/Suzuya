@@ -17,9 +17,8 @@ export default class Auth {
 
   public async login() {
     const response = await fetch(`${this.config.APIUrl}/auth/login`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
       body: JSON.stringify(this.config.credentials),
     });
 
@@ -40,9 +39,7 @@ export default class Auth {
 
   public async checkToken(): Promise<boolean> {
     const response = await fetch(`${this.config.APIUrl}/auth/check`, {
-      headers: {
-        Authorization: `Bearer ${this.config.AuthRes.session}`,
-      },
+      headers: { Authorization: `Bearer ${this.config.AuthRes.session}` },
     });
 
     if (response.status > 200) throw new Error(`${response.statusText} [${status}]`);
@@ -57,9 +54,7 @@ export default class Auth {
 
   public async logout() {
     const response = await fetch(`${this.config.APIUrl}/auth/logout`, {
-      headers: {
-        Authorization: `Bearer ${this.config.AuthRes.session}`,
-      },
+      headers: { Authorization: `Bearer ${this.config.AuthRes.session}` },
     });
 
     if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
@@ -72,9 +67,8 @@ export default class Auth {
 
   public async refreshToken() {
     const response = await fetch(`${this.config.APIUrl}/auth/logout`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
       body: JSON.stringify({ token: this.config.AuthRes.refresh }),
     });
 

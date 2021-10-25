@@ -4,7 +4,7 @@ import uuid4 from "uuid4";
 import Config from "../config";
 import Auth from "./auth";
 
-import { MangaQueryParameters } from "../interfaces/manga";
+import { MangaCreateBody, MangaQueryParameters } from "../interfaces/manga";
 import { ServerCollectionResponse, ServerEntityResponse } from "../interfaces/common";
 
 export default class Manga {
@@ -40,6 +40,19 @@ export default class Manga {
     if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
 
     const data: ServerCollectionResponse<"manga"> = await response.json();
+    return data;
+  }
+
+  public async createManga(body: MangaCreateBody) {
+    const response = await fetch(`${this.config.APIUrl}/manga`, {
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+      body: JSON.stringify(body),
+    });
+
+    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: ServerEntityResponse<"manga"> = await response.json();
+
     return data;
   }
 
