@@ -55,7 +55,7 @@ export default class Manga {
 
   /**
    * Create a new Manga. \
-   * Requires Authorization. \
+   * Requires Authentication. \
    * Docs: https://api.mangadex.org/docs.html#operation/post-manga
    */
   public async createManga(body: MangaCreateBody) {
@@ -108,7 +108,7 @@ export default class Manga {
   }
 
   /**
-   * Requires Authorization. \
+   * Requires Authentication. \
    * Docs: https://api.mangadex.org/docs.html#operation/put-manga-id
    */
   public async updateManga(uuid: UUID, body: MangaUpdateBody) {
@@ -130,7 +130,7 @@ export default class Manga {
   }
 
   /**
-   * Requires Authorization \
+   * Requires Authentication \
    * Docs: https://api.mangadex.org/docs.html#operation/delete-manga-id
    */
   public async deleteManga(uuid: UUID) {
@@ -151,7 +151,7 @@ export default class Manga {
   }
 
   /**
-   * Requires Authorization \
+   * Requires Authentication \
    * Docs: https://api.mangadex.org/docs.html#operation/delete-manga-id-follow
    */
   public async unfollowManga(uuid: UUID) {
@@ -163,6 +163,27 @@ export default class Manga {
         Authorization: `Bearer ${this.config.AuthRes.session}`,
       },
       method: "DEL",
+    });
+
+    if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: ServerResponse = await response.json();
+
+    return data;
+  }
+
+  /**
+   * Requires Authentication \
+   * Docs: https://api.mangadex.org/docs.html#operation/post-manga-id-follow
+   */
+  public async followManga(uuid: UUID) {
+    if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
+
+    const response = await fetch(`${this.config.APIUrl}/manga/${uuid}/follow`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.config.AuthRes.session}`,
+      },
+      method: "POST",
     });
 
     if (response.status > 200) throw new Error(`${response.statusText} [${response.status}]`);
