@@ -1,23 +1,14 @@
-import { ServerResponse, ServerEntityResponse, UUID } from "./common";
-import { LangCodeObject, LangCodes } from "./locales";
-
-export type MangaStatus = "ongoing" | "completed" | "hiatus" | "cancelled";
-
-export type MangaReadingStatus =
-  | "reading"
-  | "on_hold"
-  | "plan_to_read"
-  | "dropped"
-  | "re_reading"
-  | "completed";
-
-export type PublicationDemographic = "shounen" | "shoujo" | "josei" | "seinen";
-
-export type ContentRating = "safe" | "suggestive" | "erotica" | "pornographic";
-
-export type MangaState = "draft" | "submitted" | "rejected";
-
-export type CustomListVisibility = "public" | "private";
+import type { Response, EntityResponse } from "../extra/common";
+import type {
+  MangaState,
+  MangaStatus,
+  ContentRating,
+  PublicationDemographic,
+  MagnaRelated,
+  MangaReadingStatus,
+  CustomListVisibility,
+} from "../extra/enums";
+import type { LangCodeObject, LangCodes } from "../locale";
 
 export interface MangaLinks {
   /** AniList */
@@ -46,24 +37,7 @@ export interface MangaLinks {
   engtl?: string;
 }
 
-export type MagnaRelated =
-  | "monochrome"
-  | "main_story"
-  | "adapted_from"
-  | "based_on"
-  | "prequel"
-  | "side_story"
-  | "doujinshi"
-  | "same_franchise"
-  | "shared_universe"
-  | "sequel"
-  | "spin_off"
-  | "alternate_story"
-  | "preserialization"
-  | "colored"
-  | "serialization";
-
-export interface ServerMangaAttribute {
+export interface MangaAttribute {
   title: LangCodeObject;
   altTitles: LangCodeObject[];
   description: LangCodeObject;
@@ -76,14 +50,14 @@ export interface ServerMangaAttribute {
   status: string;
   year: number;
   contentRating: ContentRating;
-  tags: ServerEntityResponse<"tag">[];
+  tags: EntityResponse<"tag">[];
   state: MangaState;
   version: number;
   createdAt: string;
   updatedAt: string;
 }
 
-export interface ServerMangaTagAttributes {
+export interface MangaTagAttributes {
   name: LangCodeObject;
   description: LangCodeObject;
   group: string;
@@ -97,12 +71,12 @@ export interface MangaQueryParameters {
   /** Must be more than or equal to 0 */
   offset?: number;
   title?: string;
-  "authors[]"?: UUID[];
-  "artists[]"?: UUID[];
+  "authors[]"?: string[];
+  "artists[]"?: string[];
   year?: number;
-  "includedTags[]"?: UUID[];
+  "includedTags[]"?: string[];
   includedTagsMode?: "AND" | "OR";
-  "excludedTags[]"?: UUID[];
+  "excludedTags[]"?: string[];
   excludedTagsMode?: "AND" | "OR";
   "status[]"?: ["ongoing" | "completed" | "hiatus" | "cancelled"];
   "originalLanguage[]"?: LangCodes[];
@@ -111,7 +85,7 @@ export interface MangaQueryParameters {
   "publicationDemographic[]"?: PublicationDemographic[];
 
   /** Array of UUIDs as strings; Max: 100 */
-  "ids[]"?: UUID[];
+  "ids[]"?: string[];
 
   /** Defaults to  ["safe","suggestive","erotica"] */
   "contentRating[]"?: ContentRating[];
@@ -170,8 +144,8 @@ export interface MangaCreateBody {
   title: LangCodeObject;
   altTitles?: LangCodeObject[];
   description?: LangCodeObject;
-  authors?: UUID[];
-  artists?: UUID[];
+  authors?: string[];
+  artists?: string[];
   links?: MangaLinks;
   originalLanguage: string;
   lastVolume?: string;
@@ -180,7 +154,7 @@ export interface MangaCreateBody {
   status: MangaStatus;
   year?: number;
   contentRating: ContentRating;
-  tags?: UUID[];
+  tags?: string[];
   modNotes?: string;
   version?: number;
 }
@@ -189,8 +163,8 @@ export interface MangaUpdateBody {
   title?: LangCodeObject;
   altTitles?: LangCodeObject[];
   description?: LangCodeObject;
-  authors?: UUID[];
-  artists?: UUID[];
+  authors?: string[];
+  artists?: string[];
   links?: MangaLinks;
   originalLanguage?: string;
   lastVolume?: string;
@@ -199,12 +173,12 @@ export interface MangaUpdateBody {
   status: MangaStatus;
   year?: number;
   contentRating?: ContentRating;
-  tags?: UUID[];
+  tags?: string[];
   modNotes?: string;
   version: number;
 }
 
-export interface ServerMangaVolumeResponse extends ServerResponse {
+export interface MangaVolumeResponse extends Response {
   volumes: {
     [key: string | "none"]: {
       volume: string;
@@ -212,7 +186,7 @@ export interface ServerMangaVolumeResponse extends ServerResponse {
       chapters: {
         [key: string | "none"]: {
           chapter: string;
-          id: UUID;
+          id: string;
           count: number;
         };
       };
@@ -220,25 +194,25 @@ export interface ServerMangaVolumeResponse extends ServerResponse {
   };
 }
 
-export interface ServerMangaStatuses extends ServerResponse {
+export interface MangaStatusesResponse extends Response {
   statuses: {
-    [key: UUID]: MangaStatus;
+    [key: string]: MangaStatus;
   };
 }
 
-export interface ServerMangaStatus extends ServerResponse {
+export interface MangaStatusResponse extends Response {
   status: MangaStatus;
 }
 
-export interface ServerMangaDraftSubmitBody {
+export interface MangaDraftSubmitBody {
   version: number;
 }
 
-export interface ServerMangaDraftParameters {
+export interface MangaDraftParameters {
   [key: string]: any;
   limit?: number;
   offset?: number;
-  user?: UUID;
+  user?: string;
   state?: MangaState;
   order?: {
     title?: "asc" | "desc";

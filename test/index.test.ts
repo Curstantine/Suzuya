@@ -1,5 +1,5 @@
 import { Suzuya, Config } from "../src/index";
-import { LangCodes } from "../src/interfaces/locales";
+import { LangCodes } from "../src/utils/locale/locale";
 
 const config = new Config({ email: "", password: "", username: "" });
 const suzu = new Suzuya(config);

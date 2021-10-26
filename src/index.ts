@@ -1,5 +1,5 @@
 import Config from "./config";
-import Auth from "./utils/auth";
+import Auth from "./utils/auth/auth";
 import Manga from "./utils/manga";
 
 class Suzuya {

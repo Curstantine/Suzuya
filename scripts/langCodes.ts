@@ -18,4 +18,4 @@ const langCodes = codes.map((code) => {
 const LangCodeObject = `export interface LangCodeObject {\n ${langObject.join("\n")} \n}`;
 const LangCodes = `export enum LangCodes {\n ${langCodes.join("\n")} \n}`;
 
-writeFileSync("./src/interfaces/locales.ts", `${LangCodeObject} \n\n ${LangCodes}`);
+writeFileSync("./src/utils/locale/index.ts", `${LangCodeObject} \n\n ${LangCodes}`);

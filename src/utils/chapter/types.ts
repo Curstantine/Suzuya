@@ -1,6 +1,4 @@
-import { UUID } from "./common";
-
-export interface ServerChapterAttribute {
+export interface ChapterAttribute {
   title: string;
   volume: string;
   chapter: string;
@@ -8,7 +6,7 @@ export interface ServerChapterAttribute {
   hash: string;
   data: string[];
   dataSaver: string[];
-  uploader: UUID;
+  uploader: string;
   externalUrl: string;
   version: 1;
   createdAt: string;
