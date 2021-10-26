@@ -1,4 +1,4 @@
-import { URL, URLSearchParams } from "url";
+import { URL } from "url";
 import fetch from "node-fetch";
 import uuid4 from "uuid4";
 import Config from "../../config";
@@ -29,7 +29,8 @@ export default class Manga {
   }
 
   /**
-   * Search a list of Manga. \
+   * Search a list of Manga.
+   *
    * Docs: https://api.mangadex.org/docs.html#operation/get-search-manga
    */
   public async listManga(params: MangaQueryParameters) {
@@ -44,8 +45,10 @@ export default class Manga {
   }
 
   /**
-   * Create a new Manga. \
-   * Requires Authentication. \
+   * Create a new Manga.
+   *
+   * Requires Authentication.
+   *
    * Docs: https://api.mangadex.org/docs.html#operation/post-manga
    */
   public async createManga(body: MangaCreateBody) {
@@ -84,7 +87,8 @@ export default class Manga {
   }
 
   /**
-   * View Manga. \
+   * View Manga.
+   *
    * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id
    */
   public async viewManga(mangaId: string) {
@@ -102,7 +106,8 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication. \
+   * Requires Authentication.
+   *
    * Docs: https://api.mangadex.org/docs.html#operation/put-manga-id
    */
   public async updateManga(mangaId: string, body: MangaUpdateBody) {
@@ -125,7 +130,8 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication \
+   * Requires Authentication
+   *
    * Docs: https://api.mangadex.org/docs.html#operation/delete-manga-id
    */
   public async deleteManga(mangaId: string) {
@@ -147,7 +153,8 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication \
+   * Requires Authentication
+   *
    * Docs: https://api.mangadex.org/docs.html#operation/delete-manga-id-follow
    */
   public async unfollowManga(mangaId: string) {
@@ -169,7 +176,8 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication \
+   * Requires Authentication
+   *
    * Docs: https://api.mangadex.org/docs.html#operation/post-manga-id-follow
    */
   public async followManga(mangaId: string) {
@@ -236,7 +244,8 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication \
+   * Requires Authentication
+   *
    * Docs: https://api.mangadex.org/docs.html#operation/get-manga-status
    */
   public async getAllReadingStatus(status: MangaStatus) {
@@ -257,7 +266,8 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication \
+   * Requires Authentication
+   *
    * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id-status
    */
   public async getReadingStatus(mangaId: string) {
@@ -278,7 +288,8 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication \
+   * Requires Authentication
+   *
    * Docs: https://api.mangadex.org/docs.html#operation/post-manga-id-status
    */
   public async updateMangaReadingStatus(mangaId: string, status: MangaStatus) {
@@ -301,7 +312,8 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication \
+   * Requires Authentication
+   *
    * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id-draft
    */
   public async getMangaDraft(uuid: string) {
@@ -322,7 +334,8 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication \
+   * Requires Authentication
+   *
    * **A Manga Draft that is to be submitted must have at least one cover, must be in the "draft" state and must be passed the correct version in the request body.**
    *
    * Docs: https://api.mangadex.org/docs.html#operation/commit-manga-draft
@@ -347,7 +360,8 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication \
+   * Requires Authentication
+   *
    * Docs: https://api.mangadex.org/docs.html#operation/get-manga-drafts
    */
   public async listMangaDrafts(params: MangaDraftParameters) {

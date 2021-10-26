@@ -4,9 +4,6 @@ import type {
   MangaStatus,
   ContentRating,
   PublicationDemographic,
-  MagnaRelated,
-  MangaReadingStatus,
-  CustomListVisibility,
 } from "../extra/enums";
 import type { LangCodeObject, LangCodes } from "../locale";
 
@@ -65,7 +62,7 @@ export interface MangaTagAttributes {
 }
 
 export interface MangaQueryParameters {
-  [key: string]: any;
+  [key: string]: unknown;
   /** Must be between 1-100; Default: 10 */
   limit?: number;
   /** Must be more than or equal to 0 */
@@ -90,10 +87,10 @@ export interface MangaQueryParameters {
   /** Defaults to  ["safe","suggestive","erotica"] */
   "contentRating[]"?: ContentRating[];
 
-  /** DateTime string with following format: YYYY-MM-DDTHH:MM:SS */
+  /** DateTime string with ISO format */
   createdAtSince?: string;
 
-  /** DateTime string with following format: YYYY-MM-DDTHH:MM:SS */
+  /** DateTime string with ISO format */
   updatedAtSince?: string;
 
   /** Default: ```{"latestUploadedChapter":"desc"}``` */
@@ -111,7 +108,7 @@ export interface MangaQueryParameters {
 }
 
 export interface MangaFeedParameters {
-  [key: string]: any;
+  [key: string]: unknown;
   /** Must be between 1-100; Default: 10 */
   limit?: number;
   /** Must be more than or equal to 0 */
@@ -126,10 +123,10 @@ export interface MangaFeedParameters {
   /** Defaults to  ["safe","suggestive","erotica"] */
   "contentRating[]"?: ContentRating[];
 
-  /** DateTime string with following format: YYYY-MM-DDTHH:MM:SS */
+  /** DateTime string with ISO format */
   createdAtSince?: string;
 
-  /** DateTime string with following format: YYYY-MM-DDTHH:MM:SS */
+  /** DateTime string with ISO format */
   updatedAtSince?: string;
 
   // TODO: Handle this in the search, right now it fails.
@@ -209,7 +206,7 @@ export interface MangaDraftSubmitBody {
 }
 
 export interface MangaDraftParameters {
-  [key: string]: any;
+  [key: string]: unknown;
   limit?: number;
   offset?: number;
   user?: string;

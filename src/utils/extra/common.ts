@@ -29,7 +29,7 @@ interface RelationAttribute {
 
 interface EntityAttributes {
   // TODO: Remove this
-  [key: string]: any;
+  [key: string]: unknown;
   manga: MangaAttribute;
   chapter: ChapterAttribute;
   cover_art: "";

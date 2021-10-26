@@ -3,7 +3,7 @@ import Auth from "./utils/auth/auth";
 import Manga from "./utils/manga";
 
 class Suzuya {
-  private config: Config;
+  private readonly config: Config;
   auth: Auth;
   manga: Manga;
 

@@ -45,28 +45,28 @@ export default class Auth {
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: LoginResponse = await response.json();
 
-    if (!data.errors && data.result === "ok") {
+    if (!data.errors) {
       this.Cache = {
         ...data.token!,
         date: Date.now(),
       };
     } else {
-      data.errors!.forEach((error) => {
+      data.errors.forEach((error) => {
         throw new Error(`${error.title} - ${error.detail}`);
       });
     }
   }
 
-  public async checkToken(): Promise<boolean> {
+  public async checkToken() {
     const response = await fetch(`${this.config.APIUrl}/auth/check`, {
       headers: { Authorization: `Bearer ${this.Cache.session}` },
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${status}]`);
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: CheckResponse = await response.json();
 
     if (data.result === "ok") {
-      return data.isAuthenticated;
+      return data;
     } else {
       throw new Error("Unrecoverable Error");
     }
@@ -83,6 +83,8 @@ export default class Auth {
     if (data.result !== "ok") {
       throw new Error("Unrecoverable Error");
     }
+
+    return data;
   }
 
   public async refreshToken() {
@@ -95,13 +97,13 @@ export default class Auth {
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: RefreshResponse = await response.json();
 
-    if (!data.errors && data.result === "ok") {
+    if (!data.errors) {
       this.Cache = {
         ...data.token!,
         date: Date.now(),
       };
     } else {
-      data.errors!.forEach((error) => {
+      data.errors.forEach((error) => {
         throw new Error(`${error.title} - ${error.detail}`);
       });
     }
