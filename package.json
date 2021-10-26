@@ -13,11 +13,13 @@
   "author": "Curstantine",
   "license": "ISC",
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/node": "^16.11.4",
     "@types/node-fetch": "^2.5.12",
     "@types/uuid4": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
     "@typescript-eslint/parser": "^5.1.0",
+    "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-plugin": "^1.0.11",
     "eslint-config-prettier": "^8.3.0",

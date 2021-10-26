@@ -26,7 +26,7 @@ export interface Credentials {
 }
 
 export interface AuthCache {
-  session: string;
+  session?: string;
   refresh: string;
-  date: number;
+  date?: number;
 }

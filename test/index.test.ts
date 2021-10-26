@@ -1,16 +1,21 @@
+import fs from "fs";
+import path from "path";
 import { Suzuya, Config } from "../src/index";
-import { LangCodes } from "../src/utils/locale/locale";
+import dotenv from "dotenv";
 
-const config = new Config({ email: "", password: "", username: "" });
+const env = dotenv.config({ path: path.resolve("./dev.env") });
+
+const config = new Config();
 const suzu = new Suzuya(config);
 
-(async () => {
-  // const response = await suzu.manga.listManga({});
-  // response.data.forEach((res) => {
-  //   console.log(res.relationships);
-  // });
-  // const response = await suzu.manga.mangaFeed("f9c33607-9180-4ba6-b85c-e4b5faee7192", { limit: 2 });
-  // response.data.forEach((chapter) => {
-  //   console.log(chapter);
-  // });
-})();
+const test = async () => {
+  suzu.auth.Credentials = {
+    email: env.parsed!.email,
+    username: env.parsed!.username,
+    password: env.parsed!.password,
+  };
+
+  const s = await suzu.auth.login();
+};
+
+test();

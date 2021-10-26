@@ -11,7 +11,7 @@ import type {
 } from "./types";
 
 export default class Auth {
-  private config: Config;
+  private readonly config: Config;
   private credentials?: Credentials;
   private cache?: AuthCache;
 
@@ -32,7 +32,11 @@ export default class Auth {
     return this.cache;
   }
   public set Cache(cache: AuthCache) {
-    this.cache = cache;
+    this.cache = {
+      date: cache.date ?? 0,
+      session: cache.session ?? "",
+      refresh: cache.refresh,
+    };
   }
 
   public async login() {
@@ -45,16 +49,18 @@ export default class Auth {
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: LoginResponse = await response.json();
 
-    if (!data.errors) {
-      this.Cache = {
-        ...data.token!,
-        date: Date.now(),
-      };
-    } else {
+    if (data.errors) {
       data.errors.forEach((error) => {
         throw new Error(`${error.title} - ${error.detail}`);
       });
     }
+
+    this.Cache = {
+      ...data.token!,
+      date: Date.now(),
+    };
+
+    return this.Cache;
   }
 
   public async checkToken() {
@@ -65,16 +71,17 @@ export default class Auth {
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: CheckResponse = await response.json();
 
-    if (data.result === "ok") {
-      return data;
-    } else {
+    if (data.result !== "ok") {
       throw new Error("Unrecoverable Error");
     }
+
+    return data;
   }
 
   public async logout() {
     const response = await fetch(`${this.config.APIUrl}/auth/logout`, {
       headers: { Authorization: `Bearer ${this.Cache.session}` },
+      method: "POST",
     });
 
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
@@ -83,12 +90,10 @@ export default class Auth {
     if (data.result !== "ok") {
       throw new Error("Unrecoverable Error");
     }
-
-    return data;
   }
 
   public async refreshToken() {
-    const response = await fetch(`${this.config.APIUrl}/auth/logout`, {
+    const response = await fetch(`${this.config.APIUrl}/auth/refresh`, {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify({ token: this.Cache.refresh }),
@@ -97,15 +102,17 @@ export default class Auth {
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: RefreshResponse = await response.json();
 
-    if (!data.errors) {
-      this.Cache = {
-        ...data.token!,
-        date: Date.now(),
-      };
-    } else {
+    if (data.errors) {
       data.errors.forEach((error) => {
         throw new Error(`${error.title} - ${error.detail}`);
       });
     }
+
+    this.Cache = {
+      ...data.token!,
+      date: Date.now(),
+    };
+
+    return this.Cache;
   }
 }
