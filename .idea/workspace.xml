@@ -7,21 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa609271-197e-49a0-aef5-a5d426070c12" name="Changes" comment="Added: mangaRelationCreate and .idea files&#10;Changed: relationTypes to mangaRelationTypes">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/suzuya.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/extra/common.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/extra/common.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/extra/enums.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/extra/enums.ts" afterDir="false" />
+    <list default="true" id="aa609271-197e-49a0-aef5-a5d426070c12" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/manga/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/manga/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/manga/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/manga/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +25,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="KEEP" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
@@ -83,7 +80,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1635423380986</updated>
-      <workItem from="1635423398478" duration="4438000" />
+      <workItem from="1635423398478" duration="6592000" />
     </task>
     <task id="LOCAL-00001" summary="Refactored: Changed stuff to make WebStorm happy">
       <created>1635425735917</created>
@@ -113,7 +110,21 @@
       <option name="project" value="LOCAL" />
       <updated>1635427909941</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added: mangaRelationCreate and .idea files&#10;Changed: relationTypes to mangaRelationTypes">
+      <created>1635428098052</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1635428098052</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added: deleteMangaRelation&#10;Changed: Documentation format, README">
+      <created>1635430198032</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1635430198032</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,14 +142,14 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Refactored: Changed stuff to make WebStorm happy" />
     <MESSAGE value="Removed: .idea from gitignore" />
     <MESSAGE value="Added: mangaRelationCreate&#10;Changed: relationTypes to mangaRelationTypes" />
     <MESSAGE value="Added: mangaRelationCreate and .idea files&#10;Changed: relationTypes to mangaRelationTypes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added: mangaRelationCreate and .idea files&#10;Changed: relationTypes to mangaRelationTypes" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="Added: deleteMangaRelation&#10;Changed: Documentation format, README" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added: deleteMangaRelation&#10;Changed: Documentation format, README" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

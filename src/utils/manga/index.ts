@@ -32,7 +32,7 @@ export default class Manga {
   /**
    * Search a list of Manga.
    *
-   * Docs: https://api.mangadex.org/docs.html#operation/get-search-manga
+   * [Documentation](https://api.mangadex.org/docs.html#operation/get-search-manga)
    */
   public async listManga(params: MangaQueryParameters) {
     const url = new URL(`${this.config.APIUrl}/manga`);
@@ -48,9 +48,9 @@ export default class Manga {
   /**
    * Create a new Manga.
    *
-   * Requires Authentication.
+   * **Requires authentication**
    *
-   * Docs: https://api.mangadex.org/docs.html#operation/post-manga
+   * [Documentation](https://api.mangadex.org/docs.html#operation/post-manga)
    */
   public async createManga(body: MangaCreateBody) {
     const url = new URL(`${this.config.APIUrl}/manga`);
@@ -71,7 +71,7 @@ export default class Manga {
   }
 
   /**
-   * Docs: https://api.mangadex.org/docs.html#tag/Manga/paths/~1manga~1{id}~1aggregate/get
+   * [Documentation](https://api.mangadex.org/docs.html#tag/Manga/paths/~1manga~1{id}~1aggregate/get)
    */
   public async getMangaVolumes(mangaId: string) {
     if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
@@ -90,7 +90,7 @@ export default class Manga {
   /**
    * View Manga.
    *
-   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id
+   * [Documentation](https://api.mangadex.org/docs.html#operation/get-manga-id)
    */
   public async viewManga(mangaId: string) {
     if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
@@ -107,9 +107,9 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication.
+   * **Requires authentication**
    *
-   * Docs: https://api.mangadex.org/docs.html#operation/put-manga-id
+   * [Documentation](https://api.mangadex.org/docs.html#operation/put-manga-id)
    */
   public async updateManga(mangaId: string, body: MangaUpdateBody) {
     if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
@@ -131,9 +131,9 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication
+   * **Requires authentication**
    *
-   * Docs: https://api.mangadex.org/docs.html#operation/delete-manga-id
+   * [Documentation](https://api.mangadex.org/docs.html#operation/delete-manga-id)
    */
   public async deleteManga(mangaId: string) {
     if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
@@ -154,9 +154,9 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication
+   * **Requires authentication**
    *
-   * Docs: https://api.mangadex.org/docs.html#operation/delete-manga-id-follow
+   * [Documentation](https://api.mangadex.org/docs.html#operation/delete-manga-id-follow)
    */
   public async unfollowManga(mangaId: string) {
     if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
@@ -177,9 +177,9 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication
+   * **Requires authentication**
    *
-   * Docs: https://api.mangadex.org/docs.html#operation/post-manga-id-follow
+   * [Documentation](https://api.mangadex.org/docs.html#operation/post-manga-id-follow)
    */
   public async followManga(mangaId: string) {
     if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
@@ -200,7 +200,7 @@ export default class Manga {
   }
 
   /**
-   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id-feed
+   * [Documentation](https://api.mangadex.org/docs.html#operation/get-manga-id-feed)
    */
   public async mangaFeed(mangaId: string, params: MangaFeedParameters) {
     if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
@@ -216,7 +216,7 @@ export default class Manga {
   }
 
   /**
-   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-random
+   * [Documentation](https://api.mangadex.org/docs.html#operation/get-manga-random)
    */
   public async getRandomManga(includes?: string[]) {
     const url = new URL(`${this.config.APIUrl}/manga/random`);
@@ -230,7 +230,7 @@ export default class Manga {
   }
 
   /**
-   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-tag
+   * [Documentation](https://api.mangadex.org/docs.html#operation/get-manga-tag)
    */
   public async tagList() {
     const url = new URL(`${this.config.APIUrl}/manga/tag`);
@@ -245,9 +245,9 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication
+   * **Requires authentication**
    *
-   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-status
+   * [Documentation](https://api.mangadex.org/docs.html#operation/get-manga-status)
    */
   public async getAllReadingStatus(status?: MangaStatus) {
     const url = new URL(`${this.config.APIUrl}/manga/status`);
@@ -269,7 +269,7 @@ export default class Manga {
   /**
    * Requires Authentication
    *
-   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id-status
+   * [Documentation](https://api.mangadex.org/docs.html#operation/get-manga-id-status)
    */
   public async getReadingStatus(mangaId: string) {
     if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
@@ -289,9 +289,9 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication
+   * **Requires authentication**
    *
-   * Docs: https://api.mangadex.org/docs.html#operation/post-manga-id-status
+   * [Documentation](https://api.mangadex.org/docs.html#operation/post-manga-id-status)
    */
   public async updateMangaReadingStatus(mangaId: string, status: MangaStatus) {
     if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
@@ -313,9 +313,9 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication
+   * **Requires authentication**
    *
-   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-id-draft
+   * [Documentation](https://api.mangadex.org/docs.html#operation/get-manga-id-draft)
    */
   public async getMangaDraft(uuid: string) {
     if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
@@ -335,11 +335,12 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication
+   * **Requires authentication**
    *
-   * **A Manga Draft that is to be submitted must have at least one cover, must be in the "draft" state and must be passed the correct version in the request body.**
+   * Note: A Manga Draft that is to be submitted must have at least one cover,
+   * must be in the "draft" state and must be passed the correct version in the request body.
    *
-   * Docs: https://api.mangadex.org/docs.html#operation/commit-manga-draft
+   * [Documentation](https://api.mangadex.org/docs.html#operation/commit-manga-draft)
    */
   public async submitMangaDraft(uuid: string, body: MangaDraftSubmitBody) {
     if (!uuid4.valid(uuid)) throw new Error("Not a valid UUID.");
@@ -361,9 +362,9 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication
+   * **Requires authentication**
    *
-   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-drafts
+   * [Documentation](https://api.mangadex.org/docs.html#operation/get-manga-drafts)
    */
   public async listMangaDrafts(params: MangaDraftParameters) {
     const url = new URL(`${this.config.APIUrl}/manga/draft`);
@@ -383,7 +384,7 @@ export default class Manga {
   }
 
   /**
-   * Docs: https://api.mangadex.org/docs.html#operation/get-manga-relation
+   * [Documentation](https://api.mangadex.org/docs.html#operation/get-manga-relation)
    */
   public async mangaRelationList(mangaId: string) {
     const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/relation`);
@@ -398,9 +399,9 @@ export default class Manga {
   }
 
   /**
-   * Requires Authentication
+   * **Requires authentication**
    *
-   * Docs: https://api.mangadex.org/docs.html#operation/post-manga-relation
+   * [Documentation](https://api.mangadex.org/docs.html#operation/post-manga-relation)
    */
   public async createMangaRelation(mangaId: string, body: MangaRelationCreateBody) {
     const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/relation`);
@@ -415,6 +416,30 @@ export default class Manga {
 
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: EntityResponse<"manga_relation"> = await response.json();
+
+    return data;
+  }
+
+  /**
+   * **Requires authentication**
+   *
+   * [Documentation](https://api.mangadex.org/docs.html#operation/delete-manga-relation-id)
+   *
+   * @param mangaId Manga uuid this manga relation belongs to.
+   * @param uuid Manga relation uuid.
+   */
+  public async deleteMangaRelation(mangaId: string, uuid: string) {
+    const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/relation/${uuid}`);
+    const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.auth.Cache.session}`,
+      },
+      method: "DEL",
+    });
+
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: Response = await response.json();
 
     return data;
   }
