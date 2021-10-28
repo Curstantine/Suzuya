@@ -7,15 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa609271-197e-49a0-aef5-a5d426070c12" name="Changes" comment="Added: Cover =&gt; listCoverArt, uploadCoverArt and types; form-data package&#10;Changed: readonly for initiators, form-data support for helper;">
-      <change afterPath="$PROJECT_DIR$/src/utils/cover/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/cover/types.ts" afterDir="false" />
+    <list default="true" id="aa609271-197e-49a0-aef5-a5d426070c12" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/extra/common.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/extra/common.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/extra/helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/extra/helper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/manga/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/manga/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +87,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1635423380986</updated>
-      <workItem from="1635423398478" duration="11021000" />
+      <workItem from="1635423398478" duration="11178000" />
+      <workItem from="1635435199161" duration="1641000" />
     </task>
     <task id="LOCAL-00001" summary="Refactored: Changed stuff to make WebStorm happy">
       <created>1635425735917</created>
@@ -144,7 +139,21 @@
       <option name="project" value="LOCAL" />
       <updated>1635430333233</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added: Cover =&gt; listCoverArt, uploadCoverArt and types; form-data package&#10;Changed: readonly for initiators, form-data support for helper;">
+      <created>1635435094268</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1635435094268</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added: getCoverArt&#10;Changed: parseAndSetBody to parseAndSet">
+      <created>1635436307305</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1635436307305</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +169,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -169,7 +179,9 @@
     <MESSAGE value="Added: mangaRelationCreate&#10;Changed: relationTypes to mangaRelationTypes" />
     <MESSAGE value="Added: mangaRelationCreate and .idea files&#10;Changed: relationTypes to mangaRelationTypes" />
     <MESSAGE value="Added: deleteMangaRelation&#10;Changed: Documentation format, README" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added: deleteMangaRelation&#10;Changed: Documentation format, README" />
+    <MESSAGE value="Added: Cover =&gt; listCoverArt, uploadCoverArt and types; form-data package&#10;Changed: readonly for initiators, form-data support for helper;" />
+    <MESSAGE value="Added: getCoverArt&#10;Changed: parseAndSetBody to parseAndSet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added: getCoverArt&#10;Changed: parseAndSetBody to parseAndSet" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
