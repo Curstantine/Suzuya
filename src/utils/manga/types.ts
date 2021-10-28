@@ -1,7 +1,12 @@
 // noinspection DuplicatedCode
 
 import type { EntityResponse, Response } from "../../extra/common";
-import type { ContentRating, MangaState, MangaStatus, PublicationDemographic } from "../../extra/enums";
+import type {
+  ContentRating,
+  MangaState,
+  MangaStatus,
+  PublicationDemographic,
+} from "../../extra/enums";
 import type { LangCodeObject, LangCodes } from "../locale";
 
 export interface MangaLinks {

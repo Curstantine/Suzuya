@@ -2,7 +2,13 @@ import fetch from "node-fetch";
 import Config from "../../config";
 
 import type { Response } from "../../extra/common";
-import type { AuthCache, CheckResponse, Credentials, LoginResponse, RefreshResponse } from "./types";
+import type {
+  AuthCache,
+  CheckResponse,
+  Credentials,
+  LoginResponse,
+  RefreshResponse,
+} from "./types";
 
 export default class Auth {
   private readonly config: Config;

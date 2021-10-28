@@ -14,7 +14,7 @@ import type {
   MangaStatusesResponse,
   MangaStatusResponse,
   MangaUpdateBody,
-  MangaVolumeResponse
+  MangaVolumeResponse,
 } from "./types";
 import type { MangaStatus } from "../../extra/enums";
 import type { CollectionResponse, EntityResponse, Response } from "../../extra/common";
