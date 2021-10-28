@@ -7,27 +7,27 @@ import type FormData from "form-data";
  * @param params
  * @param key Use only if typeof searchParams is not an object.
  */
-const parseAndSetBody = (searchParams: URLSearchParams | FormData, params: any, key?: string) => {
+const parseAndSet = (searchParams: URLSearchParams | FormData, params: any, key?: string) => {
   if (typeof params === "string" && key) {
-    searchParams.append(key, params);
+    return searchParams.append(key, params);
   }
 
   if (typeof params === "number" && key) {
-    searchParams.append(key, params.toString());
+    return searchParams.append(key, params.toString());
   }
 
   if (params instanceof Array && key) {
     params.forEach((param) => {
-      parseAndSetBody(searchParams, param, key);
+      parseAndSet(searchParams, param, key);
     });
   }
 
   if (params instanceof Object) {
     Object.keys(params).forEach((thisKey) => {
-      parseAndSetBody(searchParams, params[thisKey], thisKey);
+      parseAndSet(searchParams, params[thisKey], thisKey);
     });
   }
 };
 export default {
-  parseAndSetBody: parseAndSetBody,
+  parseAndSet: parseAndSet,
 };
