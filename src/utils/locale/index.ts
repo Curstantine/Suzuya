@@ -1,3 +1,5 @@
+// noinspection SpellCheckingInspection,DuplicatedCode,JSNonASCIINames,NonAsciiCharacters
+
 export interface LangCodeObject {
   /**Afar*/
   aa?: string;

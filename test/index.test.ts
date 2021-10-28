@@ -1,6 +1,5 @@
-import fs from "fs";
 import path from "path";
-import { Suzuya, Config } from "../src/index";
+import { Config, Suzuya } from "../src/index";
 import dotenv from "dotenv";
 
 const env = dotenv.config({ path: path.resolve("./dev.env") });
@@ -15,7 +14,8 @@ const test = async () => {
     password: env.parsed!.password,
   };
 
-  const s = await suzu.auth.login();
+  await suzu.auth.login();
+  console.log(await suzu.manga.getAllReadingStatus());
 };
 
 test();

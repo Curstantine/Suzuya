@@ -1,5 +1,5 @@
-import type { ChapterAttribute } from "../chapter/types";
-import type { MangaAttribute, MangaTagAttributes } from "../manga/types";
+import type { ChapterAttribute } from "../utils/chapter/types";
+import type { MangaAttribute, MangaTagAttributes } from "../utils/manga/types";
 import type { RelationshipTypes, ResponseTypes } from "./enums";
 
 export interface Response {

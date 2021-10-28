@@ -1,10 +1,10 @@
-interface MDURLS {
+interface ApiURLs {
   md_url: string;
   md_api: string;
 }
 
 export default class Config {
-  private urls: MDURLS;
+  private urls: ApiURLs;
 
   constructor() {
     this.urls = {

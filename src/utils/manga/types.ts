@@ -1,10 +1,7 @@
-import type { Response, EntityResponse } from "../extra/common";
-import type {
-  MangaState,
-  MangaStatus,
-  ContentRating,
-  PublicationDemographic,
-} from "../extra/enums";
+// noinspection DuplicatedCode
+
+import type { EntityResponse, Response } from "../../extra/common";
+import type { ContentRating, MangaState, MangaStatus, PublicationDemographic } from "../../extra/enums";
 import type { LangCodeObject, LangCodes } from "../locale";
 
 export interface MangaLinks {
@@ -62,7 +59,6 @@ export interface MangaTagAttributes {
 }
 
 export interface MangaQueryParameters {
-  [key: string]: unknown;
   /** Must be between 1-100; Default: 10 */
   limit?: number;
   /** Must be more than or equal to 0 */
@@ -80,19 +76,14 @@ export interface MangaQueryParameters {
   "excludedOriginalLanguage[]"?: LangCodes[];
   "availableTranslatedLanguage[]"?: LangCodes[];
   "publicationDemographic[]"?: PublicationDemographic[];
-
   /** Array of UUIDs as strings; Max: 100 */
   "ids[]"?: string[];
-
   /** Defaults to  ["safe","suggestive","erotica"] */
   "contentRating[]"?: ContentRating[];
-
   /** DateTime string with ISO format */
   createdAtSince?: string;
-
   /** DateTime string with ISO format */
   updatedAtSince?: string;
-
   /** Default: ```{"latestUploadedChapter":"desc"}``` */
   // TODO: Handle this in the search, right now it fails.
   order?: {
@@ -105,10 +96,11 @@ export interface MangaQueryParameters {
     relevance?: "asc" | "desc";
   };
   "includes[]"?: string[];
+
+  [key: string]: unknown;
 }
 
 export interface MangaFeedParameters {
-  [key: string]: unknown;
   /** Must be between 1-100; Default: 10 */
   limit?: number;
   /** Must be more than or equal to 0 */
@@ -116,25 +108,22 @@ export interface MangaFeedParameters {
   "translatedLanguage[]"?: LangCodes[];
   "originalLanguage[]"?: LangCodes[];
   "excludedOriginalLanguage[]"?: LangCodes[];
-
   /** `0` or `1` to represent false and true */
   includeFutureUpdates?: number;
-
   /** Defaults to  ["safe","suggestive","erotica"] */
   "contentRating[]"?: ContentRating[];
-
   /** DateTime string with ISO format */
   createdAtSince?: string;
-
   /** DateTime string with ISO format */
   updatedAtSince?: string;
-
   // TODO: Handle this in the search, right now it fails.
   order?: {
     volume?: "asc" | "desc";
     chapter?: "asc" | "desc";
   };
   "includes[]"?: string[];
+
+  [key: string]: unknown;
 }
 
 export interface MangaCreateBody {
@@ -206,7 +195,6 @@ export interface MangaDraftSubmitBody {
 }
 
 export interface MangaDraftParameters {
-  [key: string]: unknown;
   limit?: number;
   offset?: number;
   user?: string;
@@ -218,4 +206,6 @@ export interface MangaDraftParameters {
     updatedAt?: "asc" | "desc";
   };
   "includes[]"?: string[];
+
+  [key: string]: unknown;
 }

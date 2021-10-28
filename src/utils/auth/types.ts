@@ -1,4 +1,4 @@
-import type { Response, Error } from "../extra/common";
+import type { Error, Response } from "../../extra/common";
 
 export interface LoginResponse extends Response {
   token?: {

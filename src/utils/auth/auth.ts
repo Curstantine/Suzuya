@@ -1,14 +1,8 @@
 import fetch from "node-fetch";
 import Config from "../../config";
 
-import type { Response } from "../extra/common";
-import type {
-  LoginResponse,
-  CheckResponse,
-  RefreshResponse,
-  AuthCache,
-  Credentials,
-} from "./types";
+import type { Response } from "../../extra/common";
+import type { AuthCache, CheckResponse, Credentials, LoginResponse, RefreshResponse } from "./types";
 
 export default class Auth {
   private readonly config: Config;
@@ -23,6 +17,7 @@ export default class Auth {
     if (!this.credentials) throw new Error("You need to set credentials first!");
     return this.credentials;
   }
+
   public set Credentials(credentials: Credentials) {
     this.credentials = credentials;
   }
@@ -31,6 +26,7 @@ export default class Auth {
     if (!this.cache) throw new Error("You need to authenticate first.");
     return this.cache;
   }
+
   public set Cache(cache: AuthCache) {
     this.cache = {
       date: cache.date ?? 0,

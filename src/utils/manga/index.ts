@@ -3,21 +3,21 @@ import fetch from "node-fetch";
 import uuid4 from "uuid4";
 import Config from "../../config";
 import Auth from "../auth/auth";
-import Helper from "../extra/helper";
+import Helper from "../../extra/helper";
 
 import type {
   MangaCreateBody,
-  MangaFeedParameters,
-  MangaQueryParameters,
-  MangaUpdateBody,
   MangaDraftParameters,
   MangaDraftSubmitBody,
-  MangaStatusResponse,
+  MangaFeedParameters,
+  MangaQueryParameters,
   MangaStatusesResponse,
-  MangaVolumeResponse,
+  MangaStatusResponse,
+  MangaUpdateBody,
+  MangaVolumeResponse
 } from "./types";
-import type { MangaStatus } from "../extra/enums";
-import type { CollectionResponse, EntityResponse, Response } from "../extra/common";
+import type { MangaStatus } from "../../extra/enums";
+import type { CollectionResponse, EntityResponse, Response } from "../../extra/common";
 
 export default class Manga {
   private auth: Auth;
@@ -248,7 +248,7 @@ export default class Manga {
    *
    * Docs: https://api.mangadex.org/docs.html#operation/get-manga-status
    */
-  public async getAllReadingStatus(status: MangaStatus) {
+  public async getAllReadingStatus(status?: MangaStatus) {
     const url = new URL(`${this.config.APIUrl}/manga/status`);
     Helper.parseParams(url.searchParams, status, "status");
 
