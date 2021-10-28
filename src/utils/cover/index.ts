@@ -6,7 +6,6 @@ import Config from "../../config";
 import Helper from "../../extra/helper";
 import { CoverQueryParameters, CoverUploadBody } from "./types";
 import { CollectionResponse, EntityResponse } from "../../extra/common";
-import helper from "../../extra/helper";
 
 export default class Cover {
   private readonly auth: Auth;
@@ -22,7 +21,7 @@ export default class Cover {
    */
   public async listCoverArt(params: CoverQueryParameters) {
     const url = new URL(`${this.config.APIUrl}/cover`);
-    Helper.parseAndSetBody(url.searchParams, params);
+    Helper.parseAndSet(url.searchParams, params);
 
     const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
@@ -39,7 +38,7 @@ export default class Cover {
   public async uploadCoverArt(mangaId: string, body: CoverUploadBody) {
     const url = new URL(`${this.config.APIUrl}/cover/${mangaId}`);
     const formData = new FormData();
-    helper.parseAndSetBody(formData, body);
+    Helper.parseAndSet(formData, body);
 
     const response = await fetch(url, {
       headers: {
@@ -49,6 +48,20 @@ export default class Cover {
       method: "POST",
       body: formData,
     });
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+
+    const data: EntityResponse<"cover_art"> = await response.json();
+    return data;
+  }
+
+  /**
+   * [Documentation](https://api.mangadex.org/docs.html#operation/get-cover-id)
+   */
+  public async getCoverArt(coverId: string, includes?: string[]) {
+    const url = new URL(`${this.config.APIUrl}/cover/${coverId}`);
+    Helper.parseAndSet(url.searchParams, includes, "includes[]");
+
+    const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
 
     const data: EntityResponse<"cover_art"> = await response.json();
