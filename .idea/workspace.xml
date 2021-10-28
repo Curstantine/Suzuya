@@ -9,8 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="aa609271-197e-49a0-aef5-a5d426070c12" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/extra/helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/extra/helper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/manga/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/manga/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/cover/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/cover/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/cover/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/cover/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1635423380986</updated>
       <workItem from="1635423398478" duration="11178000" />
-      <workItem from="1635435199161" duration="1641000" />
+      <workItem from="1635435199161" duration="4454000" />
     </task>
     <task id="LOCAL-00001" summary="Refactored: Changed stuff to make WebStorm happy">
       <created>1635425735917</created>
@@ -153,7 +153,21 @@
       <option name="project" value="LOCAL" />
       <updated>1635436307305</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added: getCoverArt&#10;Changed: parseAndSetBody to parseAndSet">
+      <created>1635437620931</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1635437620931</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added: getCoverArt&#10;Changed: parseAndSetBody to parseAndSet">
+      <created>1635437662982</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1635437662982</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

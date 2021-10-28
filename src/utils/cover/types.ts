@@ -29,3 +29,9 @@ export interface CoverUploadBody {
   file: string;
   volume: string | null;
 }
+
+export interface CoverEditBody {
+  volume: number;
+  description?: string;
+  version: number;
+}
