@@ -1,5 +1,5 @@
-import { URLSearchParams } from "url";
-
+import type { URLSearchParams } from "url";
+import type FormData from "form-data";
 /**
  * Appends queryParams into {@link URLSearchParams}. \
  * Accepts array, string and objects with arrays as values \
@@ -7,27 +7,27 @@ import { URLSearchParams } from "url";
  * @param params
  * @param key Use only if typeof searchParams is not an object.
  */
-const parseParams = (searchParams: URLSearchParams, params: any, key?: string) => {
+const parseAndSetBody = (searchParams: URLSearchParams | FormData, params: any, key?: string) => {
   if (typeof params === "string" && key) {
-    searchParams.set(key, params);
+    searchParams.append(key, params);
   }
 
   if (typeof params === "number" && key) {
-    searchParams.set(key, params.toString());
+    searchParams.append(key, params.toString());
   }
 
   if (params instanceof Array && key) {
     params.forEach((param) => {
-      parseParams(searchParams, param, key);
+      parseAndSetBody(searchParams, param, key);
     });
   }
 
   if (params instanceof Object) {
     Object.keys(params).forEach((thisKey) => {
-      parseParams(searchParams, params[thisKey], thisKey);
+      parseAndSetBody(searchParams, params[thisKey], thisKey);
     });
   }
 };
 export default {
-  parseParams: parseParams,
+  parseAndSetBody: parseAndSetBody,
 };

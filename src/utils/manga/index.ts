@@ -21,8 +21,8 @@ import type { MangaStatus } from "../../extra/enums";
 import type { CollectionResponse, EntityResponse, Response } from "../../extra/common";
 
 export default class Manga {
-  private auth: Auth;
-  private config: Config;
+  private readonly auth: Auth;
+  private readonly config: Config;
 
   constructor(auth: Auth, config: Config) {
     this.auth = auth;
@@ -36,7 +36,7 @@ export default class Manga {
    */
   public async listManga(params: MangaQueryParameters) {
     const url = new URL(`${this.config.APIUrl}/manga`);
-    Helper.parseParams(url.searchParams, params);
+    Helper.parseAndSetBody(url.searchParams, params);
 
     const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
@@ -206,7 +206,7 @@ export default class Manga {
     if (!uuid4.valid(mangaId)) throw new Error("Not a valid UUID.");
 
     const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/feed`);
-    Helper.parseParams(url.searchParams, params);
+    Helper.parseAndSetBody(url.searchParams, params);
 
     const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
@@ -220,7 +220,7 @@ export default class Manga {
    */
   public async getRandomManga(includes?: string[]) {
     const url = new URL(`${this.config.APIUrl}/manga/random`);
-    Helper.parseParams(url.searchParams, includes, "includes[]");
+    Helper.parseAndSetBody(url.searchParams, includes, "includes[]");
 
     const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
@@ -251,7 +251,7 @@ export default class Manga {
    */
   public async getAllReadingStatus(status?: MangaStatus) {
     const url = new URL(`${this.config.APIUrl}/manga/status`);
-    Helper.parseParams(url.searchParams, status, "status");
+    Helper.parseAndSetBody(url.searchParams, status, "status");
 
     const response = await fetch(url, {
       headers: {
@@ -368,7 +368,7 @@ export default class Manga {
    */
   public async listMangaDrafts(params: MangaDraftParameters) {
     const url = new URL(`${this.config.APIUrl}/manga/draft`);
-    Helper.parseParams(url.searchParams, params);
+    Helper.parseAndSetBody(url.searchParams, params);
 
     const response = await fetch(url, {
       headers: {

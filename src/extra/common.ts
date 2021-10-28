@@ -4,6 +4,7 @@ import type {
   MangaRelationAttribute,
   MangaTagAttributes,
 } from "../utils/manga/types";
+import type { CoverAttribute } from "../utils/cover/types";
 import type { RelationshipTypes, ResponseTypes } from "./enums";
 
 export interface Response {
@@ -25,7 +26,7 @@ interface Relationships {
 interface EntityAttributes {
   manga: MangaAttribute;
   chapter: ChapterAttribute;
-  cover_art: "";
+  cover_art: CoverAttribute;
   author: "";
   artist: "";
   scanlation_group: "";
