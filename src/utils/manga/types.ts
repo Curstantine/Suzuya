@@ -3,6 +3,7 @@
 import type { EntityResponse, Response } from "../../extra/common";
 import type {
   ContentRating,
+  MangaRelated,
   MangaState,
   MangaStatus,
   PublicationDemographic,
@@ -213,4 +214,18 @@ export interface MangaDraftParameters {
   "includes[]"?: string[];
 
   [key: string]: unknown;
+}
+
+/**
+ * Attribute for type {@link ResponseTypes manga_relation} \
+ * Not part of {@link Relationships}
+ */
+export interface MangaRelationAttribute {
+  relation: MangaRelated;
+  version: number;
+}
+
+export interface MangaRelationCreateBody {
+  targetManga: string;
+  relation: MangaRelated;
 }

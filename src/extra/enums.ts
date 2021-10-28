@@ -9,7 +9,7 @@ export type RelationshipTypes =
   | "user"
   | "custom_list";
 
-export type MagnaRelated =
+export type MangaRelated =
   | "monochrome"
   | "main_story"
   | "adapted_from"

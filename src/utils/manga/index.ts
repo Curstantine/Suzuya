@@ -11,6 +11,7 @@ import type {
   MangaDraftSubmitBody,
   MangaFeedParameters,
   MangaQueryParameters,
+  MangaRelationCreateBody,
   MangaStatusesResponse,
   MangaStatusResponse,
   MangaUpdateBody,
@@ -392,6 +393,28 @@ export default class Manga {
 
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
     const data: CollectionResponse<"manga_relation"> = await response.json();
+
+    return data;
+  }
+
+  /**
+   * Requires Authentication
+   *
+   * Docs: https://api.mangadex.org/docs.html#operation/post-manga-relation
+   */
+  public async createMangaRelation(mangaId: string, body: MangaRelationCreateBody) {
+    const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/relation`);
+    const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.auth.Cache.session}`,
+      },
+      method: "POST",
+      body: JSON.stringify(body),
+    });
+
+    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    const data: EntityResponse<"manga_relation"> = await response.json();
 
     return data;
   }

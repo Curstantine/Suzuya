@@ -1,5 +1,9 @@
 import type { ChapterAttribute } from "../utils/chapter/types";
-import type { MangaAttribute, MangaTagAttributes } from "../utils/manga/types";
+import type {
+  MangaAttribute,
+  MangaRelationAttribute,
+  MangaTagAttributes,
+} from "../utils/manga/types";
 import type { RelationshipTypes, ResponseTypes } from "./enums";
 
 export interface Response {
@@ -18,18 +22,7 @@ interface Relationships {
   type: RelationshipTypes;
 }
 
-/**
- * Attribute for type {@link ResponseTypes manga_relation} \
- * Not part of {@link Relationships}
- */
-interface RelationAttribute {
-  relation: string;
-  version: number;
-}
-
 interface EntityAttributes {
-  // TODO: Remove this
-  [key: string]: unknown;
   manga: MangaAttribute;
   chapter: ChapterAttribute;
   cover_art: "";
@@ -39,7 +32,7 @@ interface EntityAttributes {
   tag: MangaTagAttributes;
   user: "";
   custom_list: "";
-  manga_relation: RelationAttribute;
+  manga_relation: MangaRelationAttribute;
 }
 
 export interface EntityResponse<T extends ResponseTypes> extends Response {
