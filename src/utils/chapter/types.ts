@@ -13,3 +13,17 @@ export interface ChapterAttribute {
   updatedAt: string;
   publishAt: string;
 }
+
+export interface ChapterQueryParameters {
+  limit: number;
+  offset: number;
+  "ids[]": string[];
+  title: string;
+  "groups[]": string[];
+  uploader: string;
+  manga: string;
+  "volume[]": string | string[];
+  chapter: string | string[];
+  "translatedLanguage[]": string[];
+  "originalLanguage[]";
+}

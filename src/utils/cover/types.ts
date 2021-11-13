@@ -13,15 +13,15 @@ export interface CoverQueryParameters {
   /** Manga uuids (limited to 100 per request) */
   manga?: string[];
   /** Covers uuids (limited to 100 per request) */
-  ids?: string[];
+  "ids[]"?: string[];
   /** User uuids (limited to 100 per request) */
-  uploaders?: string[];
+  "uploaders[]"?: string[];
   order?: {
     createdAt?: "asc" | "desc";
     updatedAt?: "asc" | "desc";
     volume?: "asc" | "desc";
   };
-  includes?: string[];
+  "includes[]"?: string[];
 }
 
 export interface CoverUploadBody {

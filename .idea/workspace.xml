@@ -8,9 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa609271-197e-49a0-aef5-a5d426070c12" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/utils/chapter/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/cover/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/cover/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/cover/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/cover/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,12 @@
       <option name="presentableId" value="Default" />
       <updated>1635423380986</updated>
       <workItem from="1635423398478" duration="11178000" />
-      <workItem from="1635435199161" duration="4454000" />
+      <workItem from="1635435199161" duration="5211000" />
+      <workItem from="1635497880478" duration="438000" />
+      <workItem from="1635603359417" duration="2397000" />
+      <workItem from="1635606693262" duration="2433000" />
+      <workItem from="1636638019597" duration="594000" />
+      <workItem from="1636653974677" duration="82000" />
     </task>
     <task id="LOCAL-00001" summary="Refactored: Changed stuff to make WebStorm happy">
       <created>1635425735917</created>
@@ -167,7 +172,21 @@
       <option name="project" value="LOCAL" />
       <updated>1635437662982</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added: editCoverArt, deleteCoverArt">
+      <created>1635440502649</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1635440502649</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added: editCoverArt, deleteCoverArt">
+      <created>1635440677258</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1635440677258</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +214,8 @@
     <MESSAGE value="Added: deleteMangaRelation&#10;Changed: Documentation format, README" />
     <MESSAGE value="Added: Cover =&gt; listCoverArt, uploadCoverArt and types; form-data package&#10;Changed: readonly for initiators, form-data support for helper;" />
     <MESSAGE value="Added: getCoverArt&#10;Changed: parseAndSetBody to parseAndSet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added: getCoverArt&#10;Changed: parseAndSetBody to parseAndSet" />
+    <MESSAGE value="Added: editCoverArt, deleteCoverArt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added: editCoverArt, deleteCoverArt" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

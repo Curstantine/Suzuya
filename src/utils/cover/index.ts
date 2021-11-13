@@ -1,8 +1,8 @@
 import fetch from "node-fetch";
 import { URL } from "url";
 import FormData from "form-data";
-import Auth from "../auth/auth";
-import Config from "../../config";
+import type Auth from "../auth/auth";
+import type Config from "../../config";
 import Helper from "../../extra/helper";
 import type { CoverQueryParameters, CoverUploadBody } from "./types";
 import type { CollectionResponse, EntityResponse, Response } from "../../extra/common";
