@@ -1,10 +1,8 @@
-interface ApiURLs {
-  md_url: string;
-  md_api: string;
-}
-
 export default class Config {
-  private urls: ApiURLs;
+  protected readonly urls: {
+    md_url: string;
+    md_api: string;
+  };
 
   constructor() {
     this.urls = {

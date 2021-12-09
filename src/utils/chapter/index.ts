@@ -3,7 +3,7 @@ import { URL } from "url";
 import FormData from "form-data";
 import type Auth from "../auth/auth";
 import type Config from "../../config";
-import Helper from "../../extra/helper";
+import Helper from "../../types/helper";
 
 export default class Chapter {
   private readonly auth: Auth;

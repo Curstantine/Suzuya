@@ -20,7 +20,7 @@ tags:
   - name: Infrastructure
 info:
   title: MangaDex API
-  version: 5.3.12
+  version: 5.3.15
   contact:
     name: MangaDex staff team
     email: support@mangadex.com
@@ -74,8 +74,8 @@ info:
     | `PUT    /manga/{id}`               | 10                          | 60                     |
     | `DELETE /manga/{id}`               | 10                          | 10                     |
     | `POST   /manga/draft/{id}/commit`  | 10                          | 60                     |
-    | `POST   /cover`                    | 10                          | 1                      |
-    | `PUT    /cover/{id}`               | 10                          | 1                      |
+    | `POST   /cover`                    | 100                         | 10                     |
+    | `PUT    /cover/{id}`               | 100                         | 10                     |
     | `DELETE /cover/{id}`               | 10                          | 10                     |
     | `POST   /group`                    | 10                          | 60                     |
     | `PUT    /group/{id}`               | 10                          | 1                      |
@@ -829,6 +829,11 @@ paths:
             enum: ['0', '1', 'true', 'false']
           in: query
           name: hasAvailableChapters
+        - schema:
+            type: string
+            format: uuid
+          in: query
+          name: group
       security: []
     post:
       summary: Create Manga
@@ -864,7 +869,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/MangaCreate'
-        description: The size of the body is limited to 16KB.
+        description: The size of the body is limited to 64KB.
       description: Create a new Manga.
       tags:
         - Manga
@@ -929,6 +934,11 @@ paths:
                               id:
                                 type: string
                                 format: uuid
+                              others:
+                                type: array
+                                items:
+                                  type: string
+                                  format: uuid
                               count:
                                 type: integer
   '/manga/{id}':
@@ -1030,7 +1040,7 @@ paths:
                         format: uuid
                         minLength: 36
                         maxLength: 36
-        description: The size of the body is limited to 16KB.
+        description: The size of the body is limited to 64KB.
       tags:
         - Manga
     delete:
@@ -1296,6 +1306,39 @@ paths:
               type: string
           in: query
           name: includes[]
+        - schema:
+            type: object
+            default:
+              latestUploadedChapter: desc
+            properties:
+              name:
+                type: string
+                enum:
+                  - asc
+                  - desc
+              createdAt:
+                type: string
+                enum:
+                  - asc
+                  - desc
+              updatedAt:
+                type: string
+                enum:
+                  - asc
+                  - desc
+              followedCount:
+                type: string
+                enum:
+                  - asc
+                  - desc
+              relevance:
+                type: string
+                enum:
+                  - asc
+                  - desc
+          in: query
+          name: order
+          style: deepObject
       security: []
     post:
       summary: Create Scanlation Group
@@ -4135,6 +4178,7 @@ paths:
             - chapter
             - scanlation_group
             - user
+            - author
         name: category
         in: path
         required: true
@@ -4180,6 +4224,7 @@ paths:
                                 - chapter
                                 - scanlation_group
                                 - user
+                                - author
                             version:
                               type: integer
                               minimum: 1
@@ -4258,6 +4303,7 @@ paths:
                     - chapter
                     - user
                     - scanlation_group
+                    - author
                 reason:
                   type: string
                   format: uuid
@@ -5199,6 +5245,12 @@ components:
           type: boolean
         official:
           type: boolean
+        inactive:
+          type: boolean
+        publishDelay:
+          type: string
+          description: "Should respected PHP's DateInterval format: https://www.php.net/manual/fr/dateinterval.construct.php"
+          pattern: '^P(([1-9]|[1-9][0-9])D)?(([1-9])W)?(T(([1-9]|1[0-9]|2[0-4])H)?(([1-9]|[1-5][0-9]|60)M)?(([1-9]|[1-5][0-9]|60)S)?)?$'
         version:
           type: integer
           minimum: 1
@@ -5264,7 +5316,13 @@ components:
           type: string
           nullable: true
           format: uri
-          pattern: '^https?://'
+          pattern: '^https?://twitter\.com'
+        inactive:
+          type: boolean
+        publishDelay:
+          type: string
+          nullable: true
+          pattern: "^P(([1-9]|[1-9][0-9])D)?(([1-9])W)?(T(([1-9]|1[0-9]|2[0-4])H)?(([1-9]|[1-5][0-9]|60)M)?(([1-9]|[1-5][0-9]|60)S)?)?$"
       required:
         - name
     ScanlationGroupEdit:
@@ -5310,8 +5368,12 @@ components:
           items:
             type: string
             pattern: '^[a-zA-Z\-]{2,5}$'
+        inactive:
+          type: boolean
         locked:
           type: boolean
+        publishDelay:
+          type: string
         version:
           type: integer
           minimum: 1
@@ -5515,52 +5577,52 @@ components:
           type: string
           nullable: true
           format: uri
-          pattern: "^https?://"
+          pattern: "^https?://twitter\\.com"
         pixiv:
           type: string
           nullable: true
           format: uri
-          pattern: "^https?://"
+          pattern: "^https?://www\\.pixiv\\.net"
         melonBook:
           type: string
           nullable: true
           format: uri
-          pattern: "^https?://"
+          pattern: "^https?://www\\.melonbooks\\.co\\.jp"
         fanBox:
           type: string
           nullable: true
           format: uri
-          pattern: "^https?://"
+          pattern: "^https?://www\\.fanbox\\.cc"
         booth:
           type: string
           nullable: true
           format: uri
-          pattern: "^https?://"
+          pattern: "^https?://booth\\.pm"
         nicoVideo:
           type: string
           nullable: true
           format: uri
-          pattern: "^https?://"
+          pattern: "^https?://www\\.nicovideo\\.jp"
         skeb:
           type: string
           nullable: true
           format: uri
-          pattern: "^https?://"
+          pattern: "^https?://skeb\\.jp"
         fantia:
           type: string
           nullable: true
           format: uri
-          pattern: "^https?://"
+          pattern: "^https?://fantia\\.jp"
         tumblr:
           type: string
           nullable: true
           format: uri
-          pattern: "^https?://"
+          pattern: "^https?://www\\.tumblr\\.com"
         youtube:
           type: string
           nullable: true
           format: uri
-          pattern: "^https?://"
+          pattern: "^https?://www\\.youtube\\.com"
         website:
           type: string
           nullable: true
@@ -5579,6 +5641,8 @@ components:
       properties:
         name:
           type: string
+        biography:
+          $ref: '#/components/schemas/LocalizedString'
         twitter:
           type: string
           nullable: true
@@ -5646,7 +5710,8 @@ components:
       properties:
         name:
           type: string
-
+        biography:
+          $ref: '#/components/schemas/LocalizedString'
         twitter:
           type: string
           nullable: true

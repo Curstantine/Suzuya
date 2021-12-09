@@ -1,13 +1,13 @@
 // noinspection DuplicatedCode
 
-import type { EntityResponse, Response } from "../../extra/common";
+import type { EntityResponse, Response } from "../../types/common";
 import type {
   ContentRating,
   MangaRelated,
   MangaState,
   MangaStatus,
   PublicationDemographic,
-} from "../../extra/enums";
+} from "../../types/enums";
 import type { LangCodeObject, LangCodes } from "../locale";
 
 export interface MangaLinks {
@@ -187,9 +187,7 @@ export interface MangaVolumeResponse extends Response {
 }
 
 export interface MangaStatusesResponse extends Response {
-  statuses: {
-    [key: string]: MangaStatus;
-  };
+  statuses: Map<string, MangaStatus>;
 }
 
 export interface MangaStatusResponse extends Response {

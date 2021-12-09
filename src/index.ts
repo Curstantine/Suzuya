@@ -17,5 +17,4 @@ class Suzuya {
     this.cover = new Cover(this.auth, this.config);
   }
 }
-
 export { Suzuya, Config };

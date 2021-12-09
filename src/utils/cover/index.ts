@@ -3,9 +3,9 @@ import { URL } from "url";
 import FormData from "form-data";
 import type Auth from "../auth/auth";
 import type Config from "../../config";
-import Helper from "../../extra/helper";
+import Helper from "../../types/helper";
 import type { CoverQueryParameters, CoverUploadBody } from "./types";
-import type { CollectionResponse, EntityResponse, Response } from "../../extra/common";
+import type { CollectionResponse, EntityResponse, Response } from "../../types/common";
 
 export default class Cover {
   private readonly auth: Auth;
@@ -103,7 +103,7 @@ export default class Cover {
         "Content-Type": "application/json",
         Authorizations: `Bearer ${this.auth.Cache.session}`,
       },
-      method: "DEL",
+      method: "DELETE",
     });
     if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
 

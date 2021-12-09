@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import Config from "../../config";
 
-import type { Response } from "../../extra/common";
+import type { Response } from "../../types/common";
 import type {
   AuthCache,
   CheckResponse,
