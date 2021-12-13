@@ -7,6 +7,7 @@ import type {
   MangaState,
   MangaStatus,
   PublicationDemographic,
+  Status,
 } from "../../types/enums";
 import type { LangCodeObject, LangCodes } from "../locale";
 
@@ -77,21 +78,20 @@ export interface MangaQueryParameters {
   includedTagsMode?: "AND" | "OR";
   "excludedTags[]"?: string[];
   excludedTagsMode?: "AND" | "OR";
-  "status[]"?: ["ongoing" | "completed" | "hiatus" | "cancelled"];
+  "status[]"?: Status[];
   "originalLanguage[]"?: LangCodes[];
   "excludedOriginalLanguage[]"?: LangCodes[];
   "availableTranslatedLanguage[]"?: LangCodes[];
   "publicationDemographic[]"?: PublicationDemographic[];
   /** Array of UUIDs as strings; Max: 100 */
   "ids[]"?: string[];
-  /** Defaults to  ["safe","suggestive","erotica"] */
+  /** Defaults to  `["safe", "suggestive", "erotica"]` */
   "contentRating[]"?: ContentRating[];
   /** DateTime string with ISO format */
   createdAtSince?: string;
   /** DateTime string with ISO format */
   updatedAtSince?: string;
   /** Default: ```{"latestUploadedChapter":"desc"}``` */
-  // TODO: Handle this in the search, right now it fails.
   order?: {
     title?: "asc" | "desc";
     year?: "asc" | "desc";
@@ -122,7 +122,6 @@ export interface MangaFeedParameters {
   createdAtSince?: string;
   /** DateTime string with ISO format */
   updatedAtSince?: string;
-  // TODO: Handle this in the search, right now it fails.
   order?: {
     volume?: "asc" | "desc";
     chapter?: "asc" | "desc";

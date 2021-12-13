@@ -34,12 +34,10 @@ export type MangaReadingStatus =
   | "re_reading"
   | "completed";
 
-/**
- * Response types returned by the MangaDex API.
- */
 export type ResponseTypes = RelationshipTypes | "manga_relation";
 export type MangaStatus = "ongoing" | "completed" | "hiatus" | "cancelled";
 export type PublicationDemographic = "shounen" | "shoujo" | "josei" | "seinen";
 export type ContentRating = "safe" | "suggestive" | "erotica" | "pornographic";
 export type MangaState = "draft" | "submitted" | "rejected";
 export type CustomListVisibility = "public" | "private";
+export type Status = "ongoing" | "completed" | "hiatus" | "cancelled";
