@@ -1,7 +1,14 @@
 # Suzuya
 
-Typescript client library for MangaDex.
+Strictly typed typescript client library for MangaDex API.
 
-Most authenticated (Create, Delete and Put) endpoints are never tested.
+Most authenticated (Create, Delete and Put) endpoints are never tested, so if you ever encounter a problem while using them don't hesitate to make an issue.
 
-Mirror: https://git.fuyu.moe/Curstantine/Suzuya
+```markdown
+Usage of our services implies acceptance of the following:
+
+    - You should credit us
+    - You shouldn't run ads on your website
+```
+
+So here you go I guess: [MangaDex](https://mangadex.org), [MangaDex API](https://api.mangadex.com), [MangaDex Discord](https://discord.com/invite/mangadex)

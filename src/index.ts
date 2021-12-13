@@ -9,8 +9,8 @@ class Suzuya {
   cover: Cover;
   private readonly config: Config;
 
-  constructor(config: Config) {
-    this.config = config;
+  constructor(config?: Config) {
+    this.config = config || new Config();
     this.auth = new Auth(this.config);
 
     this.manga = new Manga(this.auth, this.config);
