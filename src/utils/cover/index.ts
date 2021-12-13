@@ -5,7 +5,11 @@ import type Auth from "../auth/auth";
 import type Config from "../../config";
 import Helper from "../../types/helper";
 import type { CoverQueryParameters, CoverUploadBody } from "./types";
-import type { CollectionResponse, EntityResponse, Response } from "../../types/common";
+import type {
+  CollectionResponse,
+  EntityResponse,
+  Response,
+} from "../../types/common";
 
 export default class Cover {
   private readonly auth: Auth;
@@ -23,8 +27,13 @@ export default class Cover {
     const url = new URL(`${this.config.APIUrl}/cover`);
     Helper.parseAndSet(url.searchParams, params);
 
-    const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    const response = await fetch(url, {
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.status >= 400) {
+      throw new Error(`${response.statusText} [${response.status}]`);
+    }
 
     const data: CollectionResponse<"cover_art"> = await response.json();
     return data;
@@ -48,7 +57,8 @@ export default class Cover {
       method: "POST",
       body: formData,
     });
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
 
     const data: EntityResponse<"cover_art"> = await response.json();
     return data;
@@ -61,8 +71,11 @@ export default class Cover {
     const url = new URL(`${this.config.APIUrl}/cover/${coverId}`);
     Helper.parseAndSet(url.searchParams, includes, "includes[]");
 
-    const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    const response = await fetch(url, {
+      headers: { "Content-Type": "application/json" },
+    });
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
 
     const data: EntityResponse<"cover_art"> = await response.json();
     return data;
@@ -84,7 +97,8 @@ export default class Cover {
       method: "PUT",
       body: JSON.stringify(body),
     });
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
 
     const data: EntityResponse<"cover_art"> = await response.json();
     return data;
@@ -105,7 +119,8 @@ export default class Cover {
       },
       method: "DELETE",
     });
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
 
     const data: Response = await response.json();
     return data;

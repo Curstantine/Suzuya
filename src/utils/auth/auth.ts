@@ -20,7 +20,8 @@ export default class Auth {
   }
 
   public get Credentials(): Credentials {
-    if (!this.credentials) throw new Error("You need to set credentials first!");
+    if (!this.credentials)
+      throw new Error("You need to set credentials first!");
     return this.credentials;
   }
 
@@ -48,7 +49,8 @@ export default class Auth {
       body: JSON.stringify(this.credentials),
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400) 
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: LoginResponse = await response.json();
 
     if (data.errors) {
@@ -65,17 +67,40 @@ export default class Auth {
     return this.Cache;
   }
 
+  /**
+   * Checks the token's validity by matching the time limit of the
+   * jwt expiration and time elapsed since the token is granted.
+   *
+   * There's no abosolute reason for you to use {@link checkToken} over this.
+   * That method exists in case of `date` attribute being null.
+   *
+   * **Returns true if the token is valid.**
+   */
+  public checkLocalToken() {
+    const unixElapsed = Date.now() - this.Cache.date!;
+    // Millisecond based unix time x * 60 * 1000
+    // JWT expires within 15 minutes. So, 15 * 60 * 1000
+    if (unixElapsed <= 900000) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * Checks the tokens validity by pinging the `/auth/check` endpoint.
+   *
+   * **Prefer {@link checkLocalToken} over this.**
+   */
   public async checkToken() {
     const response = await fetch(`${this.config.APIUrl}/auth/check`, {
       headers: { Authorization: `Bearer ${this.Cache.session}` },
     });
-
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
-    const data: CheckResponse = await response.json();
-
-    if (data.result !== "ok") {
-      throw new Error("Unrecoverable Error");
+    if (response.status >= 400) {
+      throw new Error(`${response.statusText} [${response.status}]`);
     }
+
+    const data: CheckResponse = await response.json();
 
     return data;
   }
@@ -86,7 +111,8 @@ export default class Auth {
       method: "POST",
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: Response = await response.json();
 
     if (data.result !== "ok") {
@@ -101,7 +127,8 @@ export default class Auth {
       body: JSON.stringify({ token: this.Cache.refresh }),
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: RefreshResponse = await response.json();
 
     if (data.errors) {

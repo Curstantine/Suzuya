@@ -18,7 +18,11 @@ import type {
   MangaVolumeResponse,
 } from "./types";
 import type { MangaStatus } from "../../types/enums";
-import type { CollectionResponse, EntityResponse, Response } from "../../types/common";
+import type {
+  CollectionResponse,
+  EntityResponse,
+  Response,
+} from "../../types/common";
 
 export default class Manga {
   private readonly auth: Auth;
@@ -37,9 +41,9 @@ export default class Manga {
   public async listManga(params: MangaQueryParameters) {
     const url = new URL(`${this.config.APIUrl}/manga`);
     Helper.parseAndSet(url.searchParams, params);
-
     const response = await fetch(url);
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
 
     const data: CollectionResponse<"manga"> = await response.json();
     return data;
@@ -64,7 +68,8 @@ export default class Manga {
       body: JSON.stringify(body),
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: EntityResponse<"manga"> = await response.json();
 
     return data;
@@ -81,7 +86,8 @@ export default class Manga {
       headers: { "Content-Type": "application/json" },
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: MangaVolumeResponse = await response.json();
 
     return data;
@@ -100,7 +106,8 @@ export default class Manga {
       headers: { "Content-Type": "application/json" },
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: EntityResponse<"manga"> = await response.json();
 
     return data;
@@ -124,7 +131,8 @@ export default class Manga {
       body: JSON.stringify(body),
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: EntityResponse<"manga"> = await response.json();
 
     return data;
@@ -149,7 +157,8 @@ export default class Manga {
       method: "DELETE",
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: Response = await response.json();
 
     return data;
@@ -172,7 +181,8 @@ export default class Manga {
       method: "DELETE",
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: Response = await response.json();
 
     return data;
@@ -195,7 +205,8 @@ export default class Manga {
       method: "POST",
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: Response = await response.json();
 
     return data;
@@ -210,8 +221,11 @@ export default class Manga {
     const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/feed`);
     Helper.parseAndSet(url.searchParams, params);
 
-    const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    const response = await fetch(url, {
+      headers: { "Content-Type": "application/json" },
+    });
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
 
     const data: CollectionResponse<"chapter"> = await response.json();
     return data;
@@ -224,8 +238,11 @@ export default class Manga {
     const url = new URL(`${this.config.APIUrl}/manga/random`);
     Helper.parseAndSet(url.searchParams, includes, "includes[]");
 
-    const response = await fetch(url, { headers: { "Content-Type": "application/json" } });
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    const response = await fetch(url, {
+      headers: { "Content-Type": "application/json" },
+    });
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
 
     const data: EntityResponse<"manga"> = await response.json();
     return data;
@@ -240,7 +257,8 @@ export default class Manga {
       headers: { "Content-Type": "application/json" },
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: CollectionResponse<"tag"> = await response.json();
 
     return data;
@@ -262,7 +280,8 @@ export default class Manga {
       },
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: MangaStatusesResponse = await response.json();
 
     return data;
@@ -284,7 +303,8 @@ export default class Manga {
       },
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: MangaStatusResponse = await response.json();
 
     return data;
@@ -308,7 +328,8 @@ export default class Manga {
       body: JSON.stringify({ status: status }),
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: Response = await response.json();
 
     return data;
@@ -330,7 +351,8 @@ export default class Manga {
       },
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: EntityResponse<"manga"> = await response.json();
 
     return data;
@@ -357,7 +379,8 @@ export default class Manga {
       body: JSON.stringify(body),
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: EntityResponse<"manga"> = await response.json();
 
     return data;
@@ -379,7 +402,8 @@ export default class Manga {
       },
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: EntityResponse<"manga"> = await response.json();
 
     return data;
@@ -394,7 +418,8 @@ export default class Manga {
       headers: { "Content-Type": "application/json" },
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: CollectionResponse<"manga_relation"> = await response.json();
 
     return data;
@@ -405,7 +430,10 @@ export default class Manga {
    *
    * [Documentation](https://api.mangadex.org/docs.html#operation/post-manga-relation)
    */
-  public async createMangaRelation(mangaId: string, body: MangaRelationCreateBody) {
+  public async createMangaRelation(
+    mangaId: string,
+    body: MangaRelationCreateBody,
+  ) {
     const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/relation`);
     const response = await fetch(url, {
       headers: {
@@ -416,7 +444,8 @@ export default class Manga {
       body: JSON.stringify(body),
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: EntityResponse<"manga_relation"> = await response.json();
 
     return data;
@@ -431,7 +460,9 @@ export default class Manga {
    * @param relationId Manga relation relationId
    */
   public async deleteMangaRelation(mangaId: string, relationId: string) {
-    const url = new URL(`${this.config.APIUrl}/manga/${mangaId}/relation/${relationId}`);
+    const url = new URL(
+      `${this.config.APIUrl}/manga/${mangaId}/relation/${relationId}`,
+    );
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -440,7 +471,8 @@ export default class Manga {
       method: "DELETE",
     });
 
-    if (response.status >= 400) throw new Error(`${response.statusText} [${response.status}]`);
+    if (response.status >= 400)
+      throw new Error(`${response.statusText} [${response.status}]`);
     const data: Response = await response.json();
 
     return data;
