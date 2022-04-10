@@ -1,4 +1,4 @@
-import { Entry, Query, State } from './common';
+import { Entity, Entry, Query, State } from './common';
 import { RelationshipTypes } from './relationship';
 import { LanguageCodes, LocaleTitles } from './lang';
 import { Tag } from './tag';
@@ -106,5 +106,62 @@ export interface MangaAttributes {
   availableTranslatedLanguages: LanguageCodes[],
 }
 
+/**
+ * Manga entry.
+ *
+ * This alone is not returned by the server,
+ * it's either wrapped inside a {@link Entity} or a {@link Query}
+ */
 export type Manga = Entry<RelationshipTypes.manga, MangaAttributes, MangaRelated>;
+/**
+ * Represents a single {@link Manga} response from the server.
+ */
+export type MangaEntity = Entity<Manga>;
+/**
+ * Represents a response with multiple {@link Manga} structures,
+ * typically returned by the server for queries.
+ */
 export type MangaQuery = Query<Manga[]>;
+
+/**
+ * Body needed to create a new title.
+ */
+export interface MangaCreationBody {
+  title: LocaleTitles,
+  altTitles: LocaleTitles[],
+  description: LocaleTitles[],
+  /// Array of UUIDs
+  authors: string[],
+  /// Array of UUIDs
+  artists: string[],
+  links: MangaLinks,
+  lastVolume: string,
+  lastChapter: string,
+  publicationDemographic: Demographic,
+  status: Status,
+  year: number,
+  contentRating: ContentRating,
+  chapterNumbersResetOnNewVolume: boolean,
+  /// Array of UUIDs
+  tags: string[],
+  /// UUIDs
+  primaryCover: string,
+  version: number,
+}
+
+/**
+ * Attributes of the title returned by the server after title creation.
+ */
+export interface MangaCreationDraftAttributes extends MangaAttributes {
+  state: State.draft,
+}
+/**
+ * Entry response of the title returned by the server after title creation.
+ */
+export type MangaCreationDraft = Entry<RelationshipTypes.manga, MangaCreationDraftAttributes, MangaRelated>;
+/**
+ * Entity response of the title returned by the server.
+ *
+ * **This is the raw response returned by the server**
+ */
+export type MangaCreationDraftEntity = Entity<MangaCreationDraft>;

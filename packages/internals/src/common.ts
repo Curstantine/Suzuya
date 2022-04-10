@@ -46,6 +46,12 @@ export interface Entry<Type extends RelationshipTypes, Attributes, RelatedType> 
   relationships: Relationship<RelatedType>[],
 }
 
+export interface Entity<Data extends Entry<any, any, any>> {
+  result: ResponseResult.ok,
+  type: ResponseType.entity,
+  data: Data,
+}
+
 export interface Query<Data extends Array<Entry<any, any, any>>> {
   result: ResponseResult.ok,
   type: ResponseType.collection,

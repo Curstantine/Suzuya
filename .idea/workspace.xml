@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da500c76-c37e-4d7e-bc29-e041d763fd3d" name="Changes" comment="Added typings for Manga, Tag and common enums.">
+    <list default="true" id="da500c76-c37e-4d7e-bc29-e041d763fd3d" name="Changes" comment="Query types.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/internals/src/common.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/internals/src/common.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/internals/src/error.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/internals/src/error.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/internals/src/manga.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/internals/src/manga.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +76,7 @@
       <updated>1649587016104</updated>
       <workItem from="1649587020065" duration="476000" />
       <workItem from="1649587571130" duration="814000" />
-      <workItem from="1649588448250" duration="14879000" />
+      <workItem from="1649588448250" duration="16275000" />
     </task>
     <task id="LOCAL-00001" summary="Monorepo'd">
       <created>1649594317040</created>
@@ -93,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649603251950</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Query types.">
+      <created>1649603976492</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1649603976492</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +122,7 @@
     </ignored-roots>
     <MESSAGE value="Monorepo'd" />
     <MESSAGE value="Added typings for Manga, Tag and common enums." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added typings for Manga, Tag and common enums." />
+    <MESSAGE value="Query types." />
+    <option name="LAST_COMMIT_MESSAGE" value="Query types." />
   </component>
 </project>
