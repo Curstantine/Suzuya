@@ -1,3 +1,8 @@
+import { Entry, State } from './common';
+import { RelationshipTypes } from './relationship';
+import { LanguageCodes, LocaleTitles } from './lang';
+import { Tag } from './tag';
+
 export enum Demographic {
   shounen,
   shoujo,
@@ -55,6 +60,11 @@ export enum MangaLinkData {
   engt,
 }
 
+export type MangaLinks = {
+  [K in MangaLinkData]?: string;
+}
+
+/// This data is used in the "related" field of a Manga relationships
 export enum MangaRelated {
   monochrome,
   colored,
@@ -73,3 +83,27 @@ export enum MangaRelated {
   alternate_story,
   alternate_version,
 }
+
+export interface MangaAttributes {
+  title: LocaleTitles,
+  altTitles: LocaleTitles[],
+  description: LocaleTitles,
+  isLocked: boolean,
+  links: MangaLinks,
+  originalLanguage: LanguageCodes,
+  lastVolume: string,
+  lastChapter: string,
+  publicationDemographic: Demographic,
+  status: Status,
+  year: number,
+  contentRating: ContentRating,
+  chapterNumbersResetOnNewVolume: boolean,
+  tags: Tag[]
+  state: State,
+  version: number,
+  createdAt: Date,
+  updatedAt: Date,
+  availableTranslatedLanguages: LanguageCodes[],
+}
+
+export type Manga = Entry<RelationshipTypes.manga, MangaAttributes, MangaRelated>;

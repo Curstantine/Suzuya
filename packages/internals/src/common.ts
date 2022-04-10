@@ -1,22 +1,47 @@
+import { Relationship, RelationshipTypes } from './relationship';
+
+export enum ResponseStatus {
+  ok,
+  error
+}
+
+export enum ResponseType {
+  entity,
+  collection
+}
+
+export enum State {
+  published,
+  draft,
+  rejected
+}
+
 export enum CustomListVisibility {
   public,
   private,
 }
 
-export enum RelationshipTypes {
-  manga,
-  chapter,
-  /**
-   *  **NOTE**: In manga resources you get only one `cover_art`
-   * resource relation marking the primary cover
-   * if there are more than one.
-   * By default, this will be the latest volume's cover art.
-   */
-  cover_art,
-  author,
-  artist,
-  scanlation_group,
-  tag,
-  user,
-  custom_list,
+/**
+ * Special kind of entry,
+ * typically used inside relationships.
+ *
+ * Doesn't contain nested `relationship` field and `attributes` field.
+ */
+export interface DummyEntry<Type extends RelationshipTypes> {
+  id: string,
+  type: Type,
+}
+
+/**
+ * This is the usual type of entry,
+ * used in titles and such.
+ *
+ * Contains a `relationship` field.
+ *
+ * `RelatedType` should contain the types `relationship.related` contain,
+ *  eg: {@link Manga} should have {@link MangaRelated}
+ */
+export interface Entry<Type extends RelationshipTypes, Attributes, RelatedType> extends DummyEntry<Type> {
+  attributes: Attributes,
+  relationships: Relationship<RelatedType>[],
 }
