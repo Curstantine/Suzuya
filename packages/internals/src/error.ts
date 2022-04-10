@@ -1,4 +1,4 @@
-import { ResponseStatus } from './common';
+import { ResponseResult } from './common';
 
 export interface Error {
   id: string,
@@ -8,6 +8,6 @@ export interface Error {
 }
 
 export type ErrorResponse = {
-  type: ResponseStatus.error,
+  type: ResponseResult.error,
   errors: Error[]
 }

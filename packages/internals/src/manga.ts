@@ -1,4 +1,4 @@
-import { Entry, State } from './common';
+import { Entry, Query, State } from './common';
 import { RelationshipTypes } from './relationship';
 import { LanguageCodes, LocaleTitles } from './lang';
 import { Tag } from './tag';
@@ -107,3 +107,4 @@ export interface MangaAttributes {
 }
 
 export type Manga = Entry<RelationshipTypes.manga, MangaAttributes, MangaRelated>;
+export type MangaQuery = Query<Manga[]>;

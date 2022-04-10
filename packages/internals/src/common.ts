@@ -1,6 +1,6 @@
 import { Relationship, RelationshipTypes } from './relationship';
 
-export enum ResponseStatus {
+export enum ResponseResult {
   ok,
   error
 }
@@ -44,4 +44,13 @@ export interface DummyEntry<Type extends RelationshipTypes> {
 export interface Entry<Type extends RelationshipTypes, Attributes, RelatedType> extends DummyEntry<Type> {
   attributes: Attributes,
   relationships: Relationship<RelatedType>[],
+}
+
+export interface Query<Data extends Array<Entry<any, any, any>>> {
+  result: ResponseResult.ok,
+  type: ResponseType.collection,
+  data: Data,
+  limit: number,
+  offset: number,
+  total: number,
 }
