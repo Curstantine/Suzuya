@@ -1,14 +1,11 @@
 # Suzuya
 
-Strictly typed typescript client library for MangaDex API.
+Collection of utilities and libraries to utilize MangaDex.
 
-Most authenticated (Create, Delete and Put) endpoints are never tested, so if you ever encounter a problem while using them don't hesitate to make an issue.
+- `packages/internals`: Contains all the typescript typings for server responses.
+- `packages/library`: ESM and CJS client library for MangaDex.
+- `utils/list-importer`: MangaDex list importer (need to finish the library first).
 
-```markdown
-Usage of our services implies acceptance of the following:
+# License
 
-    - You should credit us
-    - You shouldn't run ads on your website
-```
-
-So here you go I guess: [MangaDex](https://mangadex.org), [MangaDex API](https://api.mangadex.com), [MangaDex Discord](https://discord.com/invite/mangadex)
+All the code written in this repository are under [ICCLEIYSIUYA](./LICENSE.md).

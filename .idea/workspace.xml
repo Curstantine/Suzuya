@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="da500c76-c37e-4d7e-bc29-e041d763fd3d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/configurations/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/configurations/tsconfig.cjs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/configurations/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/internals/src/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/internals/src/common.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/internals/src/lang.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/internals/src/manga.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/library/loadr.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/library/tsconfig.cjs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/library/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/langCodes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/uuid.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/common.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/enums.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/helper.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/auth/auth.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/auth/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/chapter/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/chapter/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/cover/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/cover/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/locale/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/manga/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/manga/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/auth.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/index.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/manga.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="tsconfig.json" />
+        <option value="TypeScript File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="27bRtfTp4nUtVTTVXpP71ZR3v7n" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/configurations" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="da500c76-c37e-4d7e-bc29-e041d763fd3d" name="Changes" comment="" />
+      <created>1649587016104</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649587016104</updated>
+      <workItem from="1649587020065" duration="476000" />
+      <workItem from="1649587571130" duration="814000" />
+      <workItem from="1649588448250" duration="4849000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/packages/library" />
+    </ignored-roots>
+  </component>
+</project>
