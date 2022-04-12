@@ -10,6 +10,21 @@ export enum ResponseType {
   collection
 }
 
+export enum Conditional {
+  AND,
+  OR,
+}
+
+export enum ConditionalBoolean {
+  true,
+  false,
+}
+
+export enum Sort {
+  asc,
+  desc,
+}
+
 export enum State {
   published,
   draft,
@@ -41,19 +56,26 @@ export interface DummyEntry<Type extends RelationshipTypes> {
  * `RelatedType` should contain the types `relationship.related` contain,
  *  eg: {@link Manga} should have {@link MangaRelated}
  */
-export interface Entry<Type extends RelationshipTypes, Attributes, RelatedType> extends DummyEntry<Type> {
+export interface Entry<Type extends RelationshipTypes, Attributes, RelatedType>
+  extends DummyEntry<Type> {
   attributes: Attributes,
   relationships: Relationship<RelatedType>[],
 }
 
-export interface Entity<Data extends Entry<any, any, any>> {
+export interface BaseResponse {
   result: ResponseResult.ok,
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface Entity<Data extends Entry<any, any, any>>
+  extends BaseResponse {
   type: ResponseType.entity,
   data: Data,
 }
 
-export interface Query<Data extends Array<Entry<any, any, any>>> {
-  result: ResponseResult.ok,
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface Query<Data extends Array<Entry<any, any, any>>>
+  extends BaseResponse {
   type: ResponseType.collection,
   data: Data,
   limit: number,

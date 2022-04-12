@@ -1,4 +1,4 @@
-import { Entity, Entry, Query, State } from './common';
+import { BaseResponse, Conditional, ConditionalBoolean, Entity, Entry, Query, Sort, State } from './common';
 import { RelationshipTypes } from './relationship';
 import { LanguageCodes, LocaleTitles } from './lang';
 import { Tag } from './tag';
@@ -84,6 +84,21 @@ export enum MangaRelated {
   alternate_version,
 }
 
+/**
+ * Basic sorting used for querying server for titles.
+ *
+ * Defaults to `latestUploadedChapter`: {@link Sort.desc descending}
+ */
+export interface MangaSort {
+  title?: Sort,
+  year?: Sort,
+  createdAt?: Sort,
+  updatedAt?: Sort,
+  latestUploadedChapter?: Sort,
+  followedCount?: Sort,
+  relevance?: Sort,
+}
+
 export interface MangaAttributes {
   title: LocaleTitles,
   altTitles: LocaleTitles[],
@@ -123,6 +138,43 @@ export type MangaEntity = Entity<Manga>;
  */
 export type MangaQuery = Query<Manga[]>;
 
+export interface MangaQueryParameters {
+  /// Minimum: 0, Maximum: 100, Default: 10
+  'limit'?: number,
+  /// >=0
+  'offset'?: number,
+  'title'?: string,
+  /// Array of UUIDs
+  'authors[]'?: string[],
+  /// Array of UUIDs
+  'artists[]'?: string[],
+  'year'?: number,
+  /// Array of UUIDs
+  'includedTags[]'?: string[],
+  /// Defaults to {@link Conditional.AND}
+  'includedTagsMode'?: Conditional,
+  /// Array of UUIDs
+  'excludedTags[]'?: string[],
+  'excludedTagsMode'?: Conditional,
+  'status[]'?: Status[],
+  'originalLanguage[]'?: LanguageCodes[],
+  'excludedOriginalLanguage[]'?: LanguageCodes[],
+  'availableTranslatedLanguage[]'?: LanguageCodes[],
+  'publicationDemographic[]'?: Demographic[],
+  /// Array of UUIDs
+  'ids[]'?: string[],
+  'contentRating[]'?: ContentRating[],
+  /// ISO 8601 DateTime string with following format: YYYY-MM-DDTHH:MM:SS
+  'createdAtSince'?: string,
+  /// ISO 8601 DateTime string with following format: YYYY-MM-DDTHH:MM:SS
+  'updatedAtSince'?: string,
+  'order'?: MangaSort,
+  'includes[]': RelationshipTypes[],
+  'hasAvailableChapters'?: ConditionalBoolean,
+  /// Array of UUIDs
+  'group'?: string[]
+}
+
 /**
  * Body needed to create a new title.
  */
@@ -155,6 +207,7 @@ export interface MangaCreationBody {
 export interface MangaCreationDraftAttributes extends MangaAttributes {
   state: State.draft,
 }
+
 /**
  * Entry response of the title returned by the server after title creation.
  */
@@ -165,3 +218,29 @@ export type MangaCreationDraft = Entry<RelationshipTypes.manga, MangaCreationDra
  * **This is the raw response returned by the server**
  */
 export type MangaCreationDraftEntity = Entity<MangaCreationDraft>;
+
+export interface MangaAggregateChapter {
+  id: string,
+  chapter: string,
+  /// Array of UUIDs
+  others: string[],
+  count: number,
+}
+
+export interface MangaAggregateVolume {
+  volume: string,
+  count: number,
+  /// Mapped with chapter number as the key.
+  chapters: { [key: string]: MangaAggregateChapter }
+}
+
+export interface MangaAggregateData {
+  volumes: { [key: string]: MangaAggregateVolume };
+}
+
+/**
+ * Response returned by the server after `manga_id/aggregate`,
+ * contains chapters, volumes and their respective data.
+ */
+export type MangaAggregate = BaseResponse & MangaAggregateData;
+

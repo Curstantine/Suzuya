@@ -6,6 +6,9 @@
   "repository": "https://github.com/Curstantine/Suzuya",
   "author": "Curstantine",
   "license": "MIT",
+  "scripts": {
+    "prepare": "loadr -- node scripts/specifications.ts"
+  },
   "workspaces": [
     "packages/library",
     "packages/internals"
