@@ -1,4 +1,4 @@
-import { BaseResponse, Conditional, ConditionalBoolean, Entity, Entry, Query, Sort, State } from './common';
+import { BaseResponse, Conditional, ConditionalBoolean, Entity, Entry, Collection, Sort, State } from './common';
 import { RelationshipTypes } from './relationship';
 import { LanguageCodes, LocaleTitles } from './lang';
 import { Tag } from './tag';
@@ -125,18 +125,18 @@ export interface MangaAttributes {
  * Manga entry.
  *
  * This alone is not returned by the server,
- * it's either wrapped inside a {@link Entity} or a {@link Query}
+ * it's either wrapped inside a {@link Entity} or a {@link Collection}
  */
-export type Manga = Entry<RelationshipTypes.manga, MangaAttributes, MangaRelated>;
+export type MangaEntry = Entry<RelationshipTypes.manga, MangaAttributes, MangaRelated>;
 /**
- * Represents a single {@link Manga} response from the server.
+ * Represents a single {@link MangaEntry} response from the server.
  */
-export type MangaEntity = Entity<Manga>;
+export type Manga = Entity<MangaEntry>;
 /**
- * Represents a response with multiple {@link Manga} structures,
+ * Represents a response with multiple {@link MangaEntry} structures,
  * typically returned by the server for queries.
  */
-export type MangaQuery = Query<Manga[]>;
+export type MangaCollection = Collection<MangaEntry[]>;
 
 export interface MangaQueryParameters {
   /// Minimum: 0, Maximum: 100, Default: 10
@@ -180,25 +180,26 @@ export interface MangaQueryParameters {
  */
 export interface MangaCreationBody {
   title: LocaleTitles,
-  altTitles: LocaleTitles[],
-  description: LocaleTitles[],
+  altTitles?: LocaleTitles[],
+  description?: LocaleTitles[],
   /// Array of UUIDs
-  authors: string[],
+  authors?: string[],
   /// Array of UUIDs
-  artists: string[],
-  links: MangaLinks,
-  lastVolume: string,
-  lastChapter: string,
-  publicationDemographic: Demographic,
+  artists?: string[],
+  links?: MangaLinks,
+  originalLanguage: LanguageCodes,
+  lastVolume?: string,
+  lastChapter?: string,
+  publicationDemographic?: Demographic,
   status: Status,
-  year: number,
+  year?: number,
   contentRating: ContentRating,
-  chapterNumbersResetOnNewVolume: boolean,
+  chapterNumbersResetOnNewVolume?: boolean,
   /// Array of UUIDs
-  tags: string[],
+  tags?: string[],
   /// UUIDs
-  primaryCover: string,
-  version: number,
+  primaryCover?: string,
+  version?: number,
 }
 
 /**
@@ -209,15 +210,17 @@ export interface MangaCreationDraftAttributes extends MangaAttributes {
 }
 
 /**
- * Entry response of the title returned by the server after title creation.
+ * Entry response of the title returned by the server
+ * after title creation.
  */
-export type MangaCreationDraft = Entry<RelationshipTypes.manga, MangaCreationDraftAttributes, MangaRelated>;
+export type MangaCreationDraftEntry = Entry<RelationshipTypes.manga, MangaCreationDraftAttributes, MangaRelated>;
 /**
- * Entity response of the title returned by the server.
+ * Entity response of the title returned by the server when
+ * a title is created.
  *
- * **This is the raw response returned by the server**
+ * Contains {@link MangaCreationDraftEntry}
  */
-export type MangaCreationDraftEntity = Entity<MangaCreationDraft>;
+export type MangaCreationDraft = Entity<MangaCreationDraftEntry>;
 
 export interface MangaAggregateChapter {
   id: string,
@@ -243,4 +246,49 @@ export interface MangaAggregateData {
  * contains chapters, volumes and their respective data.
  */
 export type MangaAggregate = BaseResponse & MangaAggregateData;
+
+
+/**
+ * Body needed to update a title.
+ */
+export interface MangaUpdateBody {
+  title?: LocaleTitles,
+  altTitles?: LocaleTitles[],
+  description?: LocaleTitles[],
+  /// Array of UUIDs
+  authors?: string[],
+  /// Array of UUIDs
+  artists?: string[],
+  links?: MangaLinks,
+  originalLanguage?: LanguageCodes,
+  lastVolume?: string,
+  lastChapter?: string,
+  publicationDemographic?: Demographic,
+  status?: Status,
+  year?: number,
+  contentRating?: ContentRating,
+  chapterNumbersResetOnNewVolume?: boolean,
+  /// Array of UUIDs
+  tags?: string[],
+  /// UUIDs
+  primaryCover?: string,
+  version: number,
+}
+
+/**
+ * Attributes of the title returned by the server after a title is updated.
+ */
+export type MangaUpdateDraftAttributes = MangaCreationDraftAttributes;
+/**
+ * Entry response of the title returned by the server
+ * after title creation.
+ */
+export type MangaUpdateDraftEntry = Entry<RelationshipTypes.manga, MangaCreationDraftAttributes, MangaRelated>;
+/**
+ * Entity response of the title returned by the server
+ * when a title is updated.
+ *
+ * Contains {@link MangaUpdateDraftAttributes}
+ */
+export type MangaUpdateDraft = Entity<MangaUpdateDraftEntry>;
 
