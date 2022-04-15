@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9156eb7-e8de-4207-bc97-15e3fdc631e5" name="Changes" comment="Moved exports and added MangaFeed type.">
-      <change afterPath="$PROJECT_DIR$/packages/internals/src/manga/enum.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/internals/src/manga/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/internals/src/manga/parameters.ts" afterDir="false" />
+    <list default="true" id="a9156eb7-e8de-4207-bc97-15e3fdc631e5" name="Changes" comment="Refactoring #2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/internals/src/chapter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/internals/src/chapter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/internals/src/common.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/internals/src/common.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/internals/src/manga.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/internals/src/manga/parameters.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/internals/src/manga/parameters.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +16,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="tsconfig.json" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -48,7 +44,7 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -68,7 +64,7 @@
       <workItem from="1649679270474" duration="188000" />
       <workItem from="1649679525015" duration="5192000" />
       <workItem from="1649753263678" duration="6646000" />
-      <workItem from="1650041912375" duration="4239000" />
+      <workItem from="1650041912375" duration="4915000" />
     </task>
     <task id="LOCAL-00001" summary="MangaAggregate, MangaQueryParameters">
       <created>1649755646714</created>
@@ -98,7 +94,21 @@
       <option name="project" value="LOCAL" />
       <updated>1650047792434</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Refactoring #1">
+      <created>1650049815324</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1650049815324</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Refactoring #2">
+      <created>1650050202375</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1650050202375</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,7 +130,9 @@
     <MESSAGE value="MangaUpdate body and draft" />
     <MESSAGE value="Added Chapter type" />
     <MESSAGE value="Moved exports and added MangaFeed type." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved exports and added MangaFeed type." />
+    <MESSAGE value="Refactoring #1" />
+    <MESSAGE value="Refactoring #2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring #2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

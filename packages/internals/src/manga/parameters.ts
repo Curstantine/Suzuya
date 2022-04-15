@@ -1,7 +1,7 @@
 import { Conditional, ConditionalBoolean } from '../common';
 import { LanguageCodes } from '../lang';
 import { RelationshipTypes } from '../relationship';
-import { MangaSort } from './index';
+import { MangaSort } from './extra';
 import { ContentRating, Demographic, Status } from './enum';
 import { ChapterSort } from '../chapter';
 
