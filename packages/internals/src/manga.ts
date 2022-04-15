@@ -1,7 +1,8 @@
-import { BaseResponse, Conditional, ConditionalBoolean, Entity, Entry, Collection, Sort, State } from './common';
+import { BaseResponse, Collection, Conditional, ConditionalBoolean, Entity, Entry, Sort, State } from './common';
 import { RelationshipTypes } from './relationship';
 import { LanguageCodes, LocaleTitles } from './lang';
 import { Tag } from './tag';
+import { ChapterSort } from './chapter';
 
 export enum Demographic {
   shounen,
@@ -127,16 +128,16 @@ export interface MangaAttributes {
  * This alone is not returned by the server,
  * it's either wrapped inside a {@link Entity} or a {@link Collection}
  */
-export type MangaEntry = Entry<RelationshipTypes.manga, MangaAttributes, MangaRelated>;
+export type Manga = Entry<RelationshipTypes.manga, MangaAttributes, MangaRelated>;
 /**
- * Represents a single {@link MangaEntry} response from the server.
+ * Represents a single {@link Manga} response from the server.
  */
-export type Manga = Entity<MangaEntry>;
+export type MangaEntity = Entity<Manga>;
 /**
- * Represents a response with multiple {@link MangaEntry} structures,
+ * Represents a response with multiple {@link Manga} structures,
  * typically returned by the server for queries.
  */
-export type MangaCollection = Collection<MangaEntry[]>;
+export type MangaCollection = Collection<Manga[]>;
 
 export interface MangaQueryParameters {
   /// Minimum: 0, Maximum: 100, Default: 10
@@ -169,7 +170,7 @@ export interface MangaQueryParameters {
   /// ISO 8601 DateTime string with following format: YYYY-MM-DDTHH:MM:SS
   'updatedAtSince'?: string,
   'order'?: MangaSort,
-  'includes[]': RelationshipTypes[],
+  'includes[]'?: RelationshipTypes[],
   'hasAvailableChapters'?: ConditionalBoolean,
   /// Array of UUIDs
   'group'?: string[]
@@ -213,14 +214,14 @@ export interface MangaCreationDraftAttributes extends MangaAttributes {
  * Entry response of the title returned by the server
  * after title creation.
  */
-export type MangaCreationDraftEntry = Entry<RelationshipTypes.manga, MangaCreationDraftAttributes, MangaRelated>;
+export type MangaCreationDraft = Entry<RelationshipTypes.manga, MangaCreationDraftAttributes, MangaRelated>;
 /**
  * Entity response of the title returned by the server when
  * a title is created.
  *
- * Contains {@link MangaCreationDraftEntry}
+ * Contains {@link MangaCreationDraft}
  */
-export type MangaCreationDraft = Entity<MangaCreationDraftEntry>;
+export type MangaCreationDraftEntity = Entity<MangaCreationDraft>;
 
 export interface MangaAggregateChapter {
   id: string,
@@ -246,7 +247,6 @@ export interface MangaAggregateData {
  * contains chapters, volumes and their respective data.
  */
 export type MangaAggregate = BaseResponse & MangaAggregateData;
-
 
 /**
  * Body needed to update a title.
@@ -283,12 +283,44 @@ export type MangaUpdateDraftAttributes = MangaCreationDraftAttributes;
  * Entry response of the title returned by the server
  * after title creation.
  */
-export type MangaUpdateDraftEntry = Entry<RelationshipTypes.manga, MangaCreationDraftAttributes, MangaRelated>;
+export type MangaUpdateDraft = Entry<RelationshipTypes.manga, MangaCreationDraftAttributes, MangaRelated>;
 /**
  * Entity response of the title returned by the server
  * when a title is updated.
  *
  * Contains {@link MangaUpdateDraftAttributes}
  */
-export type MangaUpdateDraft = Entity<MangaUpdateDraftEntry>;
+export type MangaUpdateDraftEntity = Entity<MangaUpdateDraft>;
 
+/// Response returned by the server for a successful deletion.
+export type MangaDelete = BaseResponse;
+
+/// Response returned by the server for a successful unfollow.
+export type MangaUnfollow = BaseResponse;
+
+/// Response returned by the server for a successful follow.
+export type MangaFollow = BaseResponse;
+
+export interface MangaFeedParameters {
+  /// Minimum: 0, Maximum: 100, Default: 10
+  'limit'?: number,
+  /// >=0
+  'offset'?: number,
+  'translatedLanguage[]'?: LanguageCodes[],
+  'originalLanguage[]'?: LanguageCodes[],
+  'excludedOriginalLanguage[]'?: LanguageCodes[],
+  'contentRating[]'?: ContentRating[],
+  /// Array of UUIDs
+  'excludedGroups[]'?: string[],
+  /// Array of UUIDs
+  'excludedUploaders[]'?: string[],
+  'includeFutureUpdates'?: ConditionalBoolean,
+  /// ISO 8601 DateTime string with following format: YYYY-MM-DDTHH:MM:SS
+  'createdAtSince'?: string,
+  /// ISO 8601 DateTime string with following format: YYYY-MM-DDTHH:MM:SS
+  'updatedAtSince'?: string,
+  /// ISO 8601 DateTime string with following format: YYYY-MM-DDTHH:MM:SS
+  'publishAtSince'?: string,
+  'order'?: ChapterSort,
+  'includes[]'?: RelationshipTypes[],
+}
