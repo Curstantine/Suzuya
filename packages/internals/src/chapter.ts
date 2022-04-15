@@ -2,6 +2,17 @@ import { LanguageCodes } from './lang';
 import { Entry, Sort } from './common';
 import { RelationshipTypes } from './relationship';
 
+/**
+ * Chapter Entry.
+ *
+ * RThis alone is not returned by the server.
+ * It's either wrapped inside a {@link Entity} or a {@link Collection}.
+ */
+export type Chapter = Entry<RelationshipTypes.chapter, ChapterAttributes, RelationshipTypes>;
+
+/**
+ * Sorting type for responses with {@link Chapter} type.
+ */
 export interface ChapterSort {
   createdAt?: Sort,
   updatedAt?: Sort,
@@ -11,7 +22,7 @@ export interface ChapterSort {
   chapter?: Sort
 }
 
-export interface ChapterAttributes {
+interface ChapterAttributes {
   title: string,
   volume: string,
   chapter: string,
@@ -30,5 +41,3 @@ export interface ChapterAttributes {
   readableAt: string,
   version: number,
 }
-
-export type Chapter = Entry<RelationshipTypes.chapter, ChapterAttributes, RelationshipTypes>;

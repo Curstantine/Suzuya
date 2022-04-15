@@ -2,7 +2,7 @@ import { BaseResponse, Collection, Conditional, ConditionalBoolean, Entity, Entr
 import { RelationshipTypes } from './relationship';
 import { LanguageCodes, LocaleTitles } from './lang';
 import { Tag } from './tag';
-import { ChapterSort } from './chapter';
+import { Chapter, ChapterSort } from './chapter';
 
 export enum Demographic {
   shounen,
@@ -123,10 +123,10 @@ export interface MangaAttributes {
 }
 
 /**
- * Manga entry.
+ * Manga Entry.
  *
  * This alone is not returned by the server,
- * it's either wrapped inside a {@link Entity} or a {@link Collection}
+ * It's either wrapped inside a {@link Entity} or a {@link Collection}
  */
 export type Manga = Entry<RelationshipTypes.manga, MangaAttributes, MangaRelated>;
 /**
@@ -324,3 +324,5 @@ export interface MangaFeedParameters {
   'order'?: ChapterSort,
   'includes[]'?: RelationshipTypes[],
 }
+
+export type MangaFeed = Collection<Chapter[]>;

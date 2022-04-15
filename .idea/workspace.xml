@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9156eb7-e8de-4207-bc97-15e3fdc631e5" name="Changes" comment="MangaUpdate body and draft">
-      <change afterPath="$PROJECT_DIR$/packages/internals/src/chapter.ts" afterDir="false" />
+    <list default="true" id="a9156eb7-e8de-4207-bc97-15e3fdc631e5" name="Changes" comment="Added Chapter type">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/internals/src/chapter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/internals/src/chapter.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/internals/src/manga.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/internals/src/manga.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +64,7 @@
       <workItem from="1649679270474" duration="188000" />
       <workItem from="1649679525015" duration="5192000" />
       <workItem from="1649753263678" duration="6646000" />
-      <workItem from="1650041912375" duration="1464000" />
+      <workItem from="1650041912375" duration="2164000" />
     </task>
     <task id="LOCAL-00001" summary="MangaAggregate, MangaQueryParameters">
       <created>1649755646714</created>
@@ -80,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649757800969</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added Chapter type">
+      <created>1650047056293</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650047056293</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,7 +107,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="MangaAggregate, MangaQueryParameters" />
     <MESSAGE value="MangaUpdate body and draft" />
-    <option name="LAST_COMMIT_MESSAGE" value="MangaUpdate body and draft" />
+    <MESSAGE value="Added Chapter type" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Chapter type" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
