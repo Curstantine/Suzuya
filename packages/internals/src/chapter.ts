@@ -1,14 +1,23 @@
 import { LanguageCodes } from './lang';
-import { Entry, Sort } from './common';
+import { Collection, Entity, Entry, Sort } from './common';
 import { RelationshipTypes } from './relationship';
 
 /**
  * Chapter Entry.
  *
- * RThis alone is not returned by the server.
+ * This alone is not returned by the server.
  * It's either wrapped inside a {@link Entity} or a {@link Collection}.
  */
-export type Chapter = Entry<RelationshipTypes.chapter, ChapterAttributes, RelationshipTypes>;
+export type Chapter = Entry<RelationshipTypes.chapter, ChapterAttributes, undefined>;
+/**
+ * Represents a single {@link Chapter} response from the server.
+ */
+export type ChapterEntity = Entity<Chapter>;
+/**
+ * Represents a response with multiple {@link Chapter chapters}
+ * typically returned by the server for queries.
+ */
+export type ChapterCollection = Collection<Chapter[]>;
 
 /**
  * Sorting type for responses with {@link Chapter} type.

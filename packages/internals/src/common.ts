@@ -53,7 +53,7 @@ export interface DummyEntry<Type extends RelationshipTypes> {
  *
  * Contains a `relationship` field.
  *
- * `RelatedType` should contain the types `relationship.related` contain,
+ * `RelatedType` should contain the types {@link Relationship.related} contain,
  *  eg: {@link Manga} should have {@link MangaRelated}
  */
 export interface Entry<Type extends RelationshipTypes, Attributes, RelatedType>
