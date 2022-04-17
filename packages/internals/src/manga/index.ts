@@ -1,9 +1,10 @@
 import { BaseResponse, Collection, Entity, Entry } from '../common';
 import { RelationshipTypes } from '../relationship';
 import { ChapterCollection } from '../chapter';
-import { MangaRelated } from './enum';
+import { MangaRelated, MangaTagGroups } from './enum';
 import { MangaAttributes, MangaCreationDraftAttributes, MangaUpdateDraftAttributes } from './attributes';
 import { MangaAggregateData } from './extra';
+import { Tag } from '../tag';
 
 /**
  * Manga Entry.
@@ -20,7 +21,7 @@ export type MangaEntity = Entity<Manga>;
  * Represents a response with multiple {@link Manga} structures,
  * typically returned by the server for queries.
  */
-export type MangaCollection = Collection<Manga[]>;
+export type MangaCollection = Collection<Manga>;
 
 /**
  * Entry response of the title returned by the server
@@ -71,3 +72,10 @@ export type MangaFollow = BaseResponse;
  * Returns a {@link Collection collection} of chapters.
  */
 export type MangaFeed = ChapterCollection;
+
+/**
+ * Type of data returned by the server for `/manga/tag` request.
+ *
+ * Includes typings for tag {@link TagAttributes.group groups}.
+ */
+export type TagList = Collection<Tag<MangaTagGroups>>;

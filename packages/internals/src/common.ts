@@ -74,10 +74,10 @@ export interface Entity<Data extends Entry<any, any, any>>
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export interface Collection<Data extends Array<Entry<any, any, any>>>
+export interface Collection<Data extends Entry<any, any, any>>
   extends BaseResponse {
   type: ResponseType.collection,
-  data: Data,
+  data: Array<Data>,
   limit: number,
   offset: number,
   total: number,

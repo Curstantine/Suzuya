@@ -2,12 +2,11 @@ import { Entry } from './common';
 import { RelationshipTypes } from './relationship';
 import { LocaleTitles } from './lang';
 
-export interface TagAttributes {
+export interface TagAttributes<Group> {
   name: LocaleTitles,
-  description: LocaleTitles,
-  // TODO: Typings
-  group: string,
+  description: LocaleTitles[],
+  group: Group,
   version: number,
 }
 
-export type Tag = Entry<RelationshipTypes.tag, TagAttributes, undefined>;
+export type Tag<Group> = Entry<RelationshipTypes.tag, TagAttributes<Group>, undefined>;

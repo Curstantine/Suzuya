@@ -74,3 +74,9 @@ export enum MangaRelated {
   alternate_story,
   alternate_version,
 }
+
+export enum MangaTagGroups {
+  genre,
+  format,
+  theme,
+}
